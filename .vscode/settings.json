@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "Pages: Dashboard",
-        "Components: IconButton"
+        "Components: IconButton",
+        "Components: Input"
     ]
 }
