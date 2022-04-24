@@ -1,8 +1,8 @@
 <div align="center" id="top" style="background:#550044">
-  <img src="./.github/app.png" alt="Mimir" width="200px"/>
+  <img src="./.github/app.png" alt="Mímir" width="200px"/>
 </div>
 
-<h1 align="center">Mimir</h1>
+<h1 align="center">Mímir</h1>
 
 <p align="center">
   <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/leonardopn/mimir?color=56BEB8">
@@ -21,7 +21,7 @@
 </p>
 
 <h4 align="center">
- 🚧  Mimir 🚀 Em construção...  🚧
+ 🚧  Mímir 🚀 Em construção...  🚧
 </h4>
 
 <hr>
@@ -40,7 +40,7 @@
 
 ## :dart: Sobre
 
-O Mimir é um app para gerenciar sua biblioteca de livros físicos num ambiente virtual.
+O Mímir é um app para gerenciar sua biblioteca de livros físicos num ambiente virtual.
 
 ## :sparkles: Funcionalidades
 
