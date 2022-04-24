@@ -2,8 +2,9 @@ import {
     Montserrat_400Regular,
     Montserrat_500Medium,
     Montserrat_700Bold,
-    useFonts
+    useFonts,
 } from "@expo-google-fonts/montserrat";
+import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
 import React from "react";
 import { StatusBar, View } from "react-native";
@@ -11,6 +12,7 @@ import { ThemeProvider } from "styled-components/native";
 import { Header } from "./components/Header";
 import theme from "./global/styles/theme";
 import { Dashboard } from "./pages/Dashboard";
+import { AppRoutes } from "./Routes/app.routes";
 
 export default function App() {
     const [fontsLoaded] = useFonts({ Montserrat_400Regular, Montserrat_500Medium, Montserrat_700Bold });
@@ -24,7 +26,9 @@ export default function App() {
             <View style={{ flex: 1 }}>
                 <StatusBar backgroundColor={theme.colors.primary} />
                 <Header></Header>
-                <Dashboard></Dashboard>
+                <NavigationContainer>
+                    <AppRoutes></AppRoutes>
+                </NavigationContainer>
             </View>
         </ThemeProvider>
     );

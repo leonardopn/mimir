@@ -3,6 +3,7 @@
         "Pages: Dashboard",
         "Components: IconButton",
         "Components: Input",
-        "Components: Header"
+        "Components: Header",
+        "Routes: App"
     ]
 }
