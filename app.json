@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "mimir",
+    "slug": "mimir",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
