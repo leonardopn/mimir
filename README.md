@@ -44,9 +44,41 @@ O Mímir é um app para gerenciar sua biblioteca de livros físicos num ambiente
 
 ## :sparkles: Funcionalidades
 
-:heavy_check_mark: Funcionalidade 1;\
-:heavy_check_mark: Funcionalidade 2;\
-:heavy_check_mark: Funcionalidade 3;
+- [ ] Gerenciar biblioteca de livros
+  - [ ] Adicionar
+    - [ ] Manualmente dado por dado
+    - [ ] Buscar dados de uma api por algum dado do livro
+      - [ ] Escanear código de barras
+  - [ ] Adicionar aos favoritos
+  - [ ] Editar
+  - [ ] Excluir
+  - [ ] Adicionar a uma/várias categoria(s)
+- [ ] Lista de desejos
+  - [ ] Adicionar livro
+    - [ ] Manualmente dado por dado
+    - [ ] Buscar dados de uma api por algum dado do livro
+      - [ ] Escanear código de barras
+  - [ ] Excluir livro
+  - [ ] Mover para biblioteca
+  - [ ] Editar livro
+  - [ ] Adicionar a uma/várias categoria(s)
+- [ ] Gerenciar categorias
+  - [ ] Criar categoria
+  - [ ] Editar categoria
+  - [ ] Excluir categoria
+- [ ] Pesquisa e filtro
+  - [ ] Pesquisar livros em todo o app
+  - [ ] filtrar na lista de desejos
+  - [ ] filtrar na biblioteca
+  - [ ] filtrar por categorias
+  - [ ] filtrar por autor
+- [ ] Métricas (gráficos e números)
+  - [ ] Livros no total
+  - [ ] Livros por categorias
+  - [ ] Top 5 autores
+- [ ] Autenticação e armazenamento em nuvem (Sync)
+  - [ ] Salvar dados do usuário nuvem
+  - [ ] Salvar dados da aplicação em nuvem
 
 ## :rocket: Tecnologias
 
