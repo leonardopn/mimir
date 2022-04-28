@@ -10,7 +10,7 @@ export default {
         attention_light: "rgba(232, 63, 91, 0.5)",
         text: "#545454",
         text_dark: "#232323",
-        background: "#fff",
+        background: "#f3f3f3",
     },
     fonts: {
         regular: "Montserrat_400Regular",
