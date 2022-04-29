@@ -47,6 +47,7 @@ O Mímir é um app para gerenciar sua biblioteca de livros físicos num ambiente
 - [ ] Gerenciar biblioteca de livros
   - [ ] Adicionar
     - [ ] Manualmente dado por dado
+    - [ ] Importando arquivo csv
     - [ ] Buscar dados de uma api por algum dado do livro
       - [ ] Escanear código de barras
   - [ ] Adicionar aos favoritos
