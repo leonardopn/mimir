@@ -18,12 +18,12 @@ export function AppRoutes({}: routesProps) {
         <Navigator
             screenOptions={{
                 headerShown: false,
-                tabBarActiveTintColor: theme.colors.secondary,
-                tabBarInactiveTintColor: theme.colors.secondary_light,
+                tabBarActiveTintColor: theme.colors.SECONDARY,
+                tabBarInactiveTintColor: theme.colors.SECONDARY_LIGHT,
                 tabBarLabelPosition: "beside-icon",
                 tabBarStyle: {
                     height: 65,
-                    backgroundColor: theme.colors.primary,
+                    backgroundColor: theme.colors.PRIMARY,
                     paddingVertical: Platform.OS === "ios" ? 20 : 0,
                     borderTopStartRadius: 15,
                     borderTopEndRadius: 15,

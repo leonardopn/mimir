@@ -24,7 +24,7 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <View style={{ flex: 1 }}>
-                <StatusBar backgroundColor={theme.colors.primary} />
+                <StatusBar backgroundColor={theme.colors.PRIMARY} />
                 <Header></Header>
                 <NavigationContainer>
                     <AppRoutes></AppRoutes>

@@ -16,7 +16,7 @@ export const Container = styled.View.attrs({
     width: ${RFValue(180)}px;
     margin-right: ${RFValue(20)}px;
     border-radius: 10px;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.BACKGROUND};
     margin: 10px;
 `;
 
@@ -35,14 +35,14 @@ export const Informations = styled.View`
 
 export const Title = styled.Text`
     font-family: ${({ theme }) => theme.fonts.bold};
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.TEXT};
     font-size: ${RFValue(11)}px;
     text-align: center;
 `;
 
 export const Author = styled.Text`
     font-family: ${({ theme }) => theme.fonts.regular};
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.TEXT};
     font-size: ${RFValue(8)}px;
     text-align: center;
 `;
