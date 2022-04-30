@@ -4,9 +4,7 @@ import { CardBook } from "../../components/CardBook";
 import { books } from "../../db/db";
 import { Container, Header, RecentlyAdded, RecentlyAddedHeader, Title } from "./styles";
 
-interface DashboardProps {}
-
-export function Dashboard({}: DashboardProps) {
+export function Dashboard() {
 	return (
 		<Container>
 			<Header>

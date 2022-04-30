@@ -11,9 +11,7 @@ import {
 	OptionSelector,
 } from "./styles";
 
-interface InsertBookProps {}
-
-export function InsertBook({}: InsertBookProps) {
+export function InsertBook() {
 	return (
 		<Container>
 			<Header>

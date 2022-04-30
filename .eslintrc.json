@@ -22,5 +22,10 @@
     ],
     "rules": {
         "react/self-closing-comp": "error"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
