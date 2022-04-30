@@ -6,6 +6,7 @@
         "Components: Header",
         "Routes: App",
         "Components: CardBook",
-        "Theme"
+        "Theme",
+        "Component: Title"
     ]
 }
