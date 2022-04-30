@@ -1,6 +1,6 @@
-import React from 'react';
-import { IconButton } from '../../components/Forms/IconButton';
-import { Title } from '../../components/Text/Title';
+import React from "react";
+import { IconButton } from "../../components/Forms/IconButton";
+import { Title } from "../../components/Text/Title";
 import {
 	ButtonArea,
 	Container,
@@ -9,7 +9,7 @@ import {
 	InfoButton,
 	InputForm,
 	OptionSelector,
-} from './styles';
+} from "./styles";
 
 interface InsertBookProps {}
 
@@ -22,12 +22,12 @@ export function InsertBook({}: InsertBookProps) {
 					<InfoButton />
 				</IconButton>
 			</Header>
-			<Divider></Divider>
-			<OptionSelector></OptionSelector>
-			<Divider></Divider>
-			<InputForm></InputForm>
-			<Divider></Divider>
-			<ButtonArea></ButtonArea>
+			<Divider />
+			<OptionSelector />
+			<Divider />
+			<InputForm />
+			<Divider />
+			<ButtonArea />
 		</Container>
 	);
 }

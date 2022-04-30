@@ -7,23 +7,28 @@ import { Container, Header, RecentlyAdded, RecentlyAddedHeader, Title } from "./
 interface DashboardProps {}
 
 export function Dashboard({}: DashboardProps) {
-    return (
-        <Container>
-            <Header>
-                <RecentlyAdded>
-                    <RecentlyAddedHeader>
-                        <Title>Adicionados recentemente</Title>
-                    </RecentlyAddedHeader>
-                    <FlatList
-                        data={books}
-                        renderItem={({ item }) => (
-                            <CardBook title={item.title} author={item.author} imageUrl={item.image}></CardBook>
-                        )}
-                        keyExtractor={(item) => String(item.key)}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}></FlatList>
-                </RecentlyAdded>
-            </Header>
-        </Container>
-    );
+	return (
+		<Container>
+			<Header>
+				<RecentlyAdded>
+					<RecentlyAddedHeader>
+						<Title>Adicionados recentemente</Title>
+					</RecentlyAddedHeader>
+					<FlatList
+						data={books}
+						renderItem={({ item }) => (
+							<CardBook
+								title={item.title}
+								author={item.author}
+								imageUrl={item.image}
+							/>
+						)}
+						keyExtractor={item => String(item.key)}
+						horizontal
+						showsHorizontalScrollIndicator={false}
+					/>
+				</RecentlyAdded>
+			</Header>
+		</Container>
+	);
 }

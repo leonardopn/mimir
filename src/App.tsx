@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import {
 	Montserrat_400Regular,
 	Montserrat_500Medium,

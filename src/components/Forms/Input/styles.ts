@@ -1,10 +1,11 @@
 import { TextInputProps } from "react-native";
 import styled from "styled-components/native";
+import React from "react";
 
 export const Container: React.FC<TextInputProps> = styled.TextInput`
-    flex: 1;
-    background-color: white;
-    border-radius: 10px;
-    height: 40px;
-    padding: 10px;
+	flex: 1;
+	background-color: white;
+	border-radius: 10px;
+	height: 40px;
+	padding: 10px;
 `;
