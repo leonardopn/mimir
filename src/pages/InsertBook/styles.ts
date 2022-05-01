@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 import Foundation from "react-native-vector-icons/Foundation";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled.View`
 	padding: ${RFValue(20)}px ${RFValue(25)}px;
@@ -15,7 +16,17 @@ export const InfoButton = styled(Foundation).attrs({ name: "info" })`
 	margin-left: ${RFValue(3)}px;
 `;
 
-export const OptionSelector = styled.View``;
+export const SearchButton = styled(FontAwesome).attrs({ name: "search" })`
+	font-size: ${RFValue(35)}px;
+	background-color: ${({ theme }) => theme.colors.TERTIARY};
+	color: ${({ theme }) => theme.colors.WHITE};
+	padding: ${RFValue(10)}px;
+	border-radius: 5px;
+`;
+
+export const OptionSelector = styled.View`
+	flex-direction: row;
+`;
 
 export const InputForm = styled.View``;
 

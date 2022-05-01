@@ -7,6 +7,7 @@ import {
 	Divider,
 	Header,
 	InfoButton,
+	SearchButton,
 	InputForm,
 	OptionSelector,
 } from "./styles";
@@ -21,7 +22,11 @@ export function InsertBook() {
 				</IconButton>
 			</Header>
 			<Divider />
-			<OptionSelector />
+			<OptionSelector>
+				<IconButton>
+					<SearchButton />
+				</IconButton>
+			</OptionSelector>
 			<Divider />
 			<InputForm />
 			<Divider />
