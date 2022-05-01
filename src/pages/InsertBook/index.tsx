@@ -7,9 +7,10 @@ import {
 	Divider,
 	Header,
 	InfoButton,
-	SearchButton,
 	InputForm,
 	OptionSelector,
+	OptionSelectorButton,
+	OptionSelectorIconButton,
 } from "./styles";
 
 export function InsertBook() {
@@ -18,14 +19,20 @@ export function InsertBook() {
 			<Header>
 				<Title>Cadastrar um novo livro</Title>
 				<IconButton>
-					<InfoButton />
+					<InfoButton iconFamily="foundation" name="info" />
 				</IconButton>
 			</Header>
 			<Divider />
 			<OptionSelector>
-				<IconButton>
-					<SearchButton />
-				</IconButton>
+				<OptionSelectorButton>
+					<OptionSelectorIconButton iconFamily="font_awesome" name="search" />
+				</OptionSelectorButton>
+				<OptionSelectorButton>
+					<OptionSelectorIconButton iconFamily="material_community" name="barcode-scan" />
+				</OptionSelectorButton>
+				<OptionSelectorButton variant="csv">
+					<OptionSelectorIconButton iconFamily="font_awesome_5" name="file-csv" />
+				</OptionSelectorButton>
 			</OptionSelector>
 			<Divider />
 			<InputForm />
