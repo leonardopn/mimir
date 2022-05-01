@@ -17,7 +17,7 @@ export const InfoButton = styled(Foundation).attrs({ name: "info" })`
 `;
 
 export const SearchButton = styled(FontAwesome).attrs({ name: "search" })`
-	font-size: ${RFValue(35)}px;
+	font-size: ${RFValue(25)}px;
 	background-color: ${({ theme }) => theme.colors.TERTIARY};
 	color: ${({ theme }) => theme.colors.WHITE};
 	padding: ${RFValue(10)}px;
