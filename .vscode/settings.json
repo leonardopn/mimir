@@ -9,6 +9,7 @@
         "Theme",
         "Component: Title",
         "Page: InsertBook",
-        "Component: VectorIcon"
+        "Component: VectorIcon",
+        "Component: Button"
     ]
 }
