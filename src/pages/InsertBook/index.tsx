@@ -1,8 +1,8 @@
 import React from "react";
+import { Button } from "../../components/Forms/Button";
 import { IconButton } from "../../components/Forms/IconButton";
 import { Title } from "../../components/Text/Title";
 import {
-	ButtonArea,
 	Container,
 	Divider,
 	Header,
@@ -37,7 +37,7 @@ export function InsertBook() {
 			<Divider />
 			<InputForm />
 			<Divider />
-			<ButtonArea />
+			<Button title="Salvar" />
 		</Container>
 	);
 }

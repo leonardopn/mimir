@@ -5,6 +5,7 @@ import { VectorIcon } from "../../components/VectorIcon";
 
 export const Container = styled.View`
 	padding: ${RFValue(20)}px ${RFValue(25)}px;
+	flex:1;
 `;
 export const Header = styled.View`
 	flex-direction: row;
@@ -38,9 +39,9 @@ export const OptionSelectorIconButton = styled(VectorIcon)`
 	color: ${({ theme }) => theme.colors.WHITE};
 `;
 
-export const InputForm = styled.View``;
-
-export const ButtonArea = styled.View``;
+export const InputForm = styled.ScrollView`
+	flex: 1;
+`;
 
 export const Divider = styled.View`
 	height: 0;
