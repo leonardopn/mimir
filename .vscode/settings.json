@@ -10,6 +10,7 @@
         "Component: Title",
         "Page: InsertBook",
         "Component: VectorIcon",
-        "Component: Button"
+        "Component: Button",
+        "Component: InputForm"
     ]
 }
