@@ -5,7 +5,7 @@ import { VectorIcon } from "../../components/VectorIcon";
 
 export const Container = styled.View`
 	padding: ${RFValue(20)}px ${RFValue(25)}px;
-	flex:1;
+	flex: 1;
 `;
 export const Header = styled.View`
 	flex-direction: row;

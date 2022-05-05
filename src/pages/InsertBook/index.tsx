@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../../components/Forms/Button";
 import { IconButton } from "../../components/Forms/IconButton";
+import { Input } from "../../components/Forms/Input";
 import { Title } from "../../components/Text/Title";
 import {
 	Container,
@@ -35,7 +36,10 @@ export function InsertBook() {
 				</OptionSelectorButton>
 			</OptionSelector>
 			<Divider />
-			<InputForm />
+			<InputForm>
+				<Input label="Nome" />
+				<Input label="Nome" />
+			</InputForm>
 			<Divider />
 			<Button title="Salvar" />
 		</Container>
