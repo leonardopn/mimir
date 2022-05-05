@@ -7,6 +7,7 @@ export const Container = styled.View`
 	padding: ${RFValue(20)}px ${RFValue(25)}px;
 	flex: 1;
 `;
+
 export const Header = styled.View`
 	flex-direction: row;
 `;
@@ -39,12 +40,17 @@ export const OptionSelectorIconButton = styled(VectorIcon)`
 	color: ${({ theme }) => theme.colors.WHITE};
 `;
 
-export const InputForm = styled.ScrollView`
-	flex: 1;
-`;
+export const InputsFormArea = styled.View``;
 
 export const Divider = styled.View`
 	height: 0;
 	border: 0.5px solid ${({ theme }) => theme.colors.TEXT_LIGHT};
 	margin: 15px 0;
+`;
+
+export const Form = styled.ScrollView``;
+
+export const Spacer = styled.View`
+	height: ${RFValue(5)}px;
+	width: 100%;
 `;
