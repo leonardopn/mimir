@@ -1,11 +1,11 @@
-import styled from "styled-components/native";
+import { TextInput } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-
+import styled from "styled-components/native";
 interface ContainerProps {
 	error?: string;
 }
 
-export const Container = styled.TextInput<ContainerProps>`
+export const Container = styled(TextInput)<ContainerProps>`
 	flex: 1;
 	background-color: white;
 	border-radius: 10px;

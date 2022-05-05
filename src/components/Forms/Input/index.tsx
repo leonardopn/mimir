@@ -2,17 +2,17 @@ import React from "react";
 import { TextInputProps } from "react-native";
 import { Container, Error, Label } from "./styles";
 
-interface InputProps extends TextInputProps {
+export interface InputProps extends TextInputProps {
 	label?: string;
-	error?: string;
+	errorMessage?: string;
 }
 
-export function Input({ label, error, ...rest }: InputProps) {
+export function Input({ label, errorMessage, ...rest }: InputProps) {
 	return (
 		<>
-			{error ? <Error>{label}</Error> : label && <Label>{label}</Label>}
-			<Container error={error} {...rest} />
-			{error && <Error>{error}</Error>}
+			{errorMessage ? <Error>{label}</Error> : label && <Label>{label}</Label>}
+			<Container error={errorMessage} {...rest} />
+			{errorMessage && <Error>{errorMessage}</Error>}
 		</>
 	);
 }
