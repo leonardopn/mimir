@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
 import { Color } from "../../../types/Theme";
@@ -7,7 +8,7 @@ interface ContainerProps {
 	autoSize?: boolean;
 }
 
-export const Container = styled.TouchableOpacity<ContainerProps>`
+export const Container = styled(TouchableOpacity)<ContainerProps>`
 	height: ${RFValue(50)}px;
 	background-color: ${({ theme, variant }) => theme.colors[variant || "PRIMARY"]};
 	border-radius: 5px;
