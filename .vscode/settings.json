@@ -11,6 +11,7 @@
         "Page: InsertBook",
         "Component: VectorIcon",
         "Component: Button",
-        "Component: InputForm"
+        "Component: InputForm",
+        "Component: Navigator"
     ]
 }
