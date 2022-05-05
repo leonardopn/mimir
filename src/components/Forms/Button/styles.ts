@@ -8,21 +8,22 @@ interface ContainerProps {
 }
 
 export const Container = styled.TouchableOpacity<ContainerProps>`
-	height: ${RFValue(45)}px;
+	height: ${RFValue(50)}px;
 	background-color: ${({ theme, variant }) => theme.colors[variant || "PRIMARY"]};
 	border-radius: 5px;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 
 	${({ autoSize }) =>
-		autoSize &&
-		css`
-			height: 100%;
-		`}
+		autoSize
+			? css`
+					height: 100%;
+			  `
+			: ""}
 `;
 
 export const TextButton = styled.Text`
 	color: ${({ theme }) => theme.colors.WHITE};
 	font-family: ${({ theme }) => theme.fonts.bold};
-	font-size: ${RFValue(20)}px;
+	font-size: ${RFValue(18)}px;
 `;
