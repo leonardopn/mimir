@@ -1,5 +1,5 @@
-import React from "react";
-import { TextInputProps } from "react-native";
+import React, { forwardRef } from "react";
+import { TextInput, TextInputProps } from "react-native";
 import { Container, Error, Label } from "./styles";
 
 export interface InputProps extends TextInputProps {
@@ -7,12 +7,14 @@ export interface InputProps extends TextInputProps {
 	errorMessage?: string;
 }
 
-export function Input({ label, errorMessage, ...rest }: InputProps) {
+function Input({ label, errorMessage, ...rest }: InputProps, ref: React.Ref<TextInput>) {
 	return (
 		<>
 			{errorMessage ? <Error>{label}</Error> : label && <Label>{label}</Label>}
-			<Container error={errorMessage} {...rest} />
+			<Container error={errorMessage} ref={ref} {...rest} />
 			{errorMessage && <Error>{errorMessage}</Error>}
 		</>
 	);
 }
+
+export default forwardRef(Input);
