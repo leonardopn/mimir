@@ -1,6 +1,6 @@
 import React from "react";
 import { IconButton } from "../Forms/IconButton";
-import { Input } from "../Forms/Input";
+import Input from "../Forms/Input";
 import { Container, Logo, SearchIcon } from "./styles";
 
 export function Header() {

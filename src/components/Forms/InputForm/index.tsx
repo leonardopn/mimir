@@ -1,7 +1,7 @@
 import React from "react";
 import { Control, Controller, FieldError, FieldPath, RegisterOptions } from "react-hook-form";
-import { Input } from "../Input";
-import { InputProps } from '../Input/index';
+import Input from "../Input";
+import { InputProps } from "../Input/index";
 
 interface InputFormProps<T> extends InputProps {
 	//*React Hook Form
@@ -18,12 +18,14 @@ export function InputForm<T>({ name, control, rules, error, ...rest }: InputForm
 			name={name}
 			control={control}
 			rules={rules}
-			render={({ field: { onChange, value } }) => (
+			render={({ field: { onChange, value, onBlur, ref } }) => (
 				<Input
+					{...rest}
 					onChangeText={onChange}
 					value={value as string}
 					errorMessage={error?.message}
-					{...rest}
+					onBlur={onBlur}
+					ref={ref}
 				/>
 			)}
 		/>
