@@ -12,6 +12,7 @@
         "Component: VectorIcon",
         "Component: Button",
         "Component: InputForm",
-        "Component: Navigator"
+        "Component: Navigator",
+        "Component: InputMultiLine"
     ]
 }
