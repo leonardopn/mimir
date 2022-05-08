@@ -13,6 +13,7 @@
         "Component: Button",
         "Component: InputForm",
         "Component: Navigator",
-        "Component: InputMultiLine"
+        "Component: InputMultiLine",
+        "Component: InputMultiLineForm"
     ]
 }
