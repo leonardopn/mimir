@@ -1,36 +1,50 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Button } from "../../components/Forms/Button";
 import { IconButton } from "../../components/Forms/IconButton";
 import { InputForm } from "../../components/Forms/InputForm";
+import { InputMultiLineForm } from "../../components/Forms/InputMultiLineForm";
 import { Title } from "../../components/Text/Title";
 import {
+	ButtonMoreFields,
 	Container,
 	Divider,
 	Form,
 	Header,
+	IconButtonMoreFields,
 	InfoButton,
 	InputsFormArea,
+	InputsFormAreaHidden,
 	OptionSelector,
 	OptionSelectorButton,
 	OptionSelectorIconButton,
-	Spacer
+	Spacer,
+	TextButtonMoreFields
 } from "./styles";
 
 interface FormData {
 	title: string;
+	author: string;
+	publisher?: string;
+	description?: string;
 }
 
 const formSchema = yup.object({
 	title: yup.string().required("Título é obrigatório."),
+	author: yup.string().required("Autor é obrigatório."),
+	publisher: yup.string(),
+	description: yup.string(),
 });
 
 export function InsertBook() {
+	const [showInputsFormAreaHidden, setShowInputsFormAreaHidden] = useState(false);
+
 	const {
 		control,
 		handleSubmit,
+		resetField,
 		formState: { errors },
 	} = useForm<FormData>({ resolver: yupResolver(formSchema), defaultValues: { title: "" } });
 
@@ -41,6 +55,10 @@ export function InsertBook() {
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		resetField("description");
+	}, [showInputsFormAreaHidden]);
 
 	return (
 		<Container>
@@ -66,13 +84,52 @@ export function InsertBook() {
 			<Form>
 				<InputsFormArea>
 					<InputForm
-						label="Título"
+						label="Título *"
 						control={control}
 						error={errors.title}
 						name="title"
-						placeholder="Harry Potter..."
+						placeholder="Harry Potter"
 					/>
 					<Spacer />
+					<InputForm
+						label="Autor *"
+						control={control}
+						error={errors.author}
+						name="author"
+						placeholder="J.K. Rowling"
+					/>
+					<Spacer />
+					<InputForm
+						label="Editora"
+						control={control}
+						error={errors.publisher}
+						name="publisher"
+						placeholder="Rocco"
+					/>
+					<Spacer />
+					<ButtonMoreFields
+						onPress={() => setShowInputsFormAreaHidden(!showInputsFormAreaHidden)}>
+						<IconButtonMoreFields
+							name={showInputsFormAreaHidden ? "minussquare" : "plussquare"}
+						/>
+						<TextButtonMoreFields>
+							{showInputsFormAreaHidden ? "Menos campos" : "Mais campos"}
+						</TextButtonMoreFields>
+					</ButtonMoreFields>
+					{showInputsFormAreaHidden && (
+						<>
+							<Spacer />
+							<InputsFormAreaHidden>
+								<InputMultiLineForm
+									label="Descrição"
+									control={control}
+									error={errors.description}
+									name="description"
+									placeholder="Descrição do livro..."
+								/>
+							</InputsFormAreaHidden>
+						</>
+					)}
 				</InputsFormArea>
 				<Divider />
 				<Button title="Salvar" onPress={handleSubmit(handleAddBook)} />

@@ -48,9 +48,32 @@ export const Divider = styled.View`
 	margin: 15px 0;
 `;
 
-export const Form = styled.ScrollView``;
+export const Form = styled.ScrollView.attrs({
+	showsVerticalScrollIndicator: false,
+})``;
 
 export const Spacer = styled.View`
-	height: ${RFValue(5)}px;
+	height: ${RFValue(10)}px;
 	width: 100%;
 `;
+
+export const ButtonMoreFields = styled(IconButton)`
+	margin: 10px 0px;
+	flex-direction: row;
+	align-items: center;
+`;
+
+export const IconButtonMoreFields = styled(VectorIcon).attrs({
+	iconFamily: "ant_design",
+})`
+	color: ${({ theme }) => theme.colors.TERTIARY};
+	font-size: ${RFValue(18)}px;
+`;
+
+export const TextButtonMoreFields = styled.Text`
+	margin-left: 5px;
+	font-family: ${({ theme }) => theme.fonts.medium};
+	color: ${({ theme }) => theme.colors.TERTIARY};
+`;
+
+export const InputsFormAreaHidden = styled.View``;
