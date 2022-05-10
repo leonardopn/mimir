@@ -7,6 +7,7 @@ import { IconButton } from "../../components/Forms/IconButton";
 import { InputForm } from "../../components/Forms/InputForm";
 import { InputMultiLineForm } from "../../components/Forms/InputMultiLineForm";
 import { Title } from "../../components/Text/Title";
+import * as ImagePicker from "expo-image-picker";
 import {
 	ButtonMoreFields,
 	Container,
@@ -50,6 +51,7 @@ export function InsertBook() {
 		control,
 		handleSubmit,
 		resetField,
+		setValue,
 		formState: { errors },
 	} = useForm<FormData>({ resolver: yupResolver(formSchema), defaultValues: { title: "" } });
 
@@ -59,6 +61,26 @@ export function InsertBook() {
 		} catch (error) {
 			console.log(error);
 		}
+	};
+
+	const pickImage = async () => {
+		// No permissions request is necessary for launching the image library
+		// let result = await ImagePicker.launchImageLibraryAsync({
+		// 	mediaTypes: ImagePicker.MediaTypeOptions.All,
+		// 	allowsEditing: true,
+		// 	aspect: [4, 3],
+		// 	quality: 1,
+
+		// });
+
+		let result = await ImagePicker.launchCameraAsync();
+
+		if (!result.cancelled) {
+			setValue("image", result.uri);
+		} else {
+			setValue("image", "");
+		}
+		console.log(result);
 	};
 
 	useEffect(() => {
@@ -87,12 +109,12 @@ export function InsertBook() {
 			</OptionSelector>
 			<Divider />
 			<Form>
-				<IconButton>
-					<ImageBookWrapper>
+				<IconButton onPress={pickImage}>
+					<ImageBookWrapper isEmpty={!watch("image")}>
 						{watch("image")?.length ? (
 							<ImageBook
 								source={{
-									uri: "https://images-na.ssl-images-amazon.com/images/I/51NcUns3LZL._SX336_BO1,204,203,200_.jpg",
+									uri: watch("image"),
 								}}
 							/>
 						) : (

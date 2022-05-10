@@ -1,5 +1,5 @@
 import { RFValue } from "react-native-responsive-fontsize";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { IconButton } from "../../components/Forms/IconButton";
 import { VectorIcon } from "../../components/VectorIcon";
 
@@ -78,7 +78,7 @@ export const TextButtonMoreFields = styled.Text`
 
 export const InputsFormAreaHidden = styled.View``;
 
-export const ImageBookWrapper = styled.View`
+export const ImageBookWrapper = styled.View<{ isEmpty: boolean }>`
 	height: ${RFValue(230)}px;
 	width: ${RFValue(180)}px;
 	background-color: ${({ theme }) => theme.colors.WHITE};
@@ -87,9 +87,13 @@ export const ImageBookWrapper = styled.View`
 	border-radius: 10px;
 	margin-bottom: 10px;
 	overflow: hidden;
-	
-	justify-content: center;
-	align-items: center;
+
+	${({ isEmpty }) =>
+		isEmpty &&
+		css`
+			justify-content: center;
+			align-items: center;
+		`}
 `;
 
 export const ImageBookEmpty = styled(VectorIcon).attrs({
