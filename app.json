@@ -5,6 +5,15 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Você permite Mímir acessar suas fotos?",
+          "cameraPermission": "Você permite Mímir tirar uma foto?"
+        }
+      ]
     ]
   }
 }
