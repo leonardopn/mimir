@@ -14,6 +14,8 @@ import {
 	Form,
 	Header,
 	IconButtonMoreFields,
+	ImageBookWrapper,
+	ImageBookEmpty,
 	InfoButton,
 	InputsFormArea,
 	InputsFormAreaHidden,
@@ -21,7 +23,8 @@ import {
 	OptionSelectorButton,
 	OptionSelectorIconButton,
 	Spacer,
-	TextButtonMoreFields
+	TextButtonMoreFields,
+	ImageBook,
 } from "./styles";
 
 interface FormData {
@@ -29,6 +32,7 @@ interface FormData {
 	author: string;
 	publisher?: string;
 	description?: string;
+	image?: string;
 }
 
 const formSchema = yup.object({
@@ -42,6 +46,7 @@ export function InsertBook() {
 	const [showInputsFormAreaHidden, setShowInputsFormAreaHidden] = useState(false);
 
 	const {
+		watch,
 		control,
 		handleSubmit,
 		resetField,
@@ -82,6 +87,20 @@ export function InsertBook() {
 			</OptionSelector>
 			<Divider />
 			<Form>
+				<IconButton>
+					<ImageBookWrapper>
+						{watch("image")?.length ? (
+							<ImageBook
+								source={{
+									uri: "https://images-na.ssl-images-amazon.com/images/I/51NcUns3LZL._SX336_BO1,204,203,200_.jpg",
+								}}
+							/>
+						) : (
+							<ImageBookEmpty />
+						)}
+					</ImageBookWrapper>
+				</IconButton>
+
 				<InputsFormArea>
 					<InputForm
 						label="Título *"
