@@ -16,6 +16,7 @@
 		"Component: InputMultiLine",
 		"Component: InputMultiLineForm",
 		"Component: IconButton",
-		"Component: WrapperIconButtonProps"
+		"Component: WrapperIconButtonProps",
+		"Component: Spacer"
 	]
 }
