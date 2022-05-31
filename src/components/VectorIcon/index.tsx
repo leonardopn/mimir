@@ -7,12 +7,14 @@ import {
 	FontAwesomeIcon,
 	FoundationIcon,
 	MaterialCommunityIconsIcon,
+	MaterialIconsIcons,
 } from "./styles";
 
-interface VectorIconProps {
+export interface VectorIconProps {
 	iconFamily:
 		| "ant_design"
 		| "material_community"
+		| "material"
 		| "foundation"
 		| "font_awesome"
 		| "font_awesome_5"
@@ -35,6 +37,8 @@ export function VectorIcon({ iconFamily, name, style }: VectorIconProps) {
 			return <FontAwesome5Icon name={name} style={style} />;
 		case "entypo":
 			return <EntypoIcon name={name} style={style} />;
+		case "material":
+			return <MaterialIconsIcons name={name} style={style} />;
 		default:
 			return null;
 	}
