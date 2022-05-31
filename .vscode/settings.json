@@ -1,19 +1,20 @@
 {
-    "conventionalCommits.scopes": [
-        "Pages: Dashboard",
-        "Components: IconButton",
-        "Components: Input",
-        "Components: Header",
-        "Routes: App",
-        "Components: CardBook",
-        "Theme",
-        "Component: Title",
-        "Page: InsertBook",
-        "Component: VectorIcon",
-        "Component: Button",
-        "Component: InputForm",
-        "Component: Navigator",
-        "Component: InputMultiLine",
-        "Component: InputMultiLineForm"
-    ]
+	"conventionalCommits.scopes": [
+		"Pages: Dashboard",
+		"Components: IconButton",
+		"Components: Input",
+		"Components: Header",
+		"Routes: App",
+		"Components: CardBook",
+		"Theme",
+		"Component: Title",
+		"Page: InsertBook",
+		"Component: VectorIcon",
+		"Component: Button",
+		"Component: InputForm",
+		"Component: Navigator",
+		"Component: InputMultiLine",
+		"Component: InputMultiLineForm",
+		"Component: IconButton"
+	]
 }

@@ -1,8 +1,19 @@
 import React from "react";
 import { TouchableOpacityProps } from "react-native";
-import { Container } from "./styles";
+import { Color } from "../../../types/Theme";
+import { VectorIconProps } from "../../VectorIcon";
 
-interface IconButtonProps extends TouchableOpacityProps {}
-export function IconButton({ children, ...rest }: IconButtonProps) {
-	return <Container {...rest}>{children}</Container>;
+import { Container, Icon } from "./styles";
+
+interface IconButtonProps extends TouchableOpacityProps {
+	icon: VectorIconProps;
+	color?: Color | string;
+}
+
+export function IconButton({ icon, ...rest }: IconButtonProps) {
+	return (
+		<Container {...rest}>
+			<Icon {...icon} />
+		</Container>
+	);
 }
