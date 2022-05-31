@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Button } from "../../components/Forms/Button";
-import { IconButton } from "../../components/Forms/IconButton";
 import { InputForm } from "../../components/Forms/InputForm";
 import { InputMultiLineForm } from "../../components/Forms/InputMultiLineForm";
+import { WrapperIconButton } from "../../components/Forms/WrapperIconButton";
 import { Title } from "../../components/Text/Title";
-import * as ImagePicker from "expo-image-picker";
+import { ImageArea } from "./ImageArea";
 import {
 	ButtonMoreFields,
 	Container,
@@ -15,8 +15,6 @@ import {
 	Form,
 	Header,
 	IconButtonMoreFields,
-	ImageBookWrapper,
-	ImageBookEmpty,
 	InfoButton,
 	InputsFormArea,
 	InputsFormAreaHidden,
@@ -24,8 +22,7 @@ import {
 	OptionSelectorButton,
 	OptionSelectorIconButton,
 	Spacer,
-	TextButtonMoreFields,
-	ImageBook,
+	TextButtonMoreFields
 } from "./styles";
 
 interface FormData {
@@ -47,11 +44,9 @@ export function InsertBook() {
 	const [showInputsFormAreaHidden, setShowInputsFormAreaHidden] = useState(false);
 
 	const {
-		watch,
 		control,
 		handleSubmit,
 		resetField,
-		setValue,
 		formState: { errors },
 	} = useForm<FormData>({ resolver: yupResolver(formSchema), defaultValues: { title: "" } });
 
@@ -63,26 +58,6 @@ export function InsertBook() {
 		}
 	};
 
-	const pickImage = async () => {
-		// No permissions request is necessary for launching the image library
-		// let result = await ImagePicker.launchImageLibraryAsync({
-		// 	mediaTypes: ImagePicker.MediaTypeOptions.All,
-		// 	allowsEditing: true,
-		// 	aspect: [4, 3],
-		// 	quality: 1,
-
-		// });
-
-		let result = await ImagePicker.launchCameraAsync();
-
-		if (!result.cancelled) {
-			setValue("image", result.uri);
-		} else {
-			setValue("image", "");
-		}
-		console.log(result);
-	};
-
 	useEffect(() => {
 		resetField("description");
 	}, [showInputsFormAreaHidden]);
@@ -91,9 +66,9 @@ export function InsertBook() {
 		<Container>
 			<Header>
 				<Title>Cadastrar um novo livro</Title>
-				<IconButton>
+				<WrapperIconButton>
 					<InfoButton iconFamily="foundation" name="info" />
-				</IconButton>
+				</WrapperIconButton>
 			</Header>
 			<Divider />
 			<OptionSelector>
@@ -109,20 +84,7 @@ export function InsertBook() {
 			</OptionSelector>
 			<Divider />
 			<Form>
-				<IconButton onPress={pickImage}>
-					<ImageBookWrapper isEmpty={!watch("image")}>
-						{watch("image")?.length ? (
-							<ImageBook
-								source={{
-									uri: watch("image"),
-								}}
-							/>
-						) : (
-							<ImageBookEmpty />
-						)}
-					</ImageBookWrapper>
-				</IconButton>
-
+				<ImageArea control={control} name="image" />
 				<InputsFormArea>
 					<InputForm
 						label="Título *"
