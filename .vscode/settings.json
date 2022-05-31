@@ -15,6 +15,7 @@
 		"Component: Navigator",
 		"Component: InputMultiLine",
 		"Component: InputMultiLineForm",
-		"Component: IconButton"
+		"Component: IconButton",
+		"Component: WrapperIconButtonProps"
 	]
 }
