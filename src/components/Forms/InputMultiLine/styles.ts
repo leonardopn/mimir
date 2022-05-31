@@ -15,7 +15,6 @@ export const Container = styled(TextInput)<ContainerProps>`
 	padding: 15px;
 	border: ${({ error }) => (error ? "2px" : "1px")} solid
 		${({ theme, error }) => (error ? theme.colors.ATTENTION : theme.colors.TEXT_LIGHT)};
-	
 `;
 
 export const Label = styled.Text`

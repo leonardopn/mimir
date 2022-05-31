@@ -22,7 +22,7 @@ import {
 	OptionSelectorButton,
 	OptionSelectorIconButton,
 	Spacer,
-	TextButtonMoreFields
+	TextButtonMoreFields,
 } from "./styles";
 
 interface FormData {

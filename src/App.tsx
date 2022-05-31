@@ -1,7 +1,7 @@
 import {
 	Montserrat_400Regular,
 	Montserrat_500Medium,
-	Montserrat_700Bold
+	Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
 import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
@@ -44,7 +44,11 @@ export default function App() {
 	}, [appIsReady]);
 
 	if (!appIsReady) {
-		return <View><Text>Carregando...</Text></View>;
+		return (
+			<View>
+				<Text>Carregando...</Text>
+			</View>
+		);
 	}
 
 	return (
