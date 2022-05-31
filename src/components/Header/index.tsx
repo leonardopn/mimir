@@ -1,18 +1,18 @@
 import React from "react";
-import { IconButton } from "../Forms/IconButton";
+import { WrapperIconButton } from "../Forms/WrapperIconButton";
 import Input from "../Forms/Input";
 import { Container, Logo, SearchIcon } from "./styles";
 
 export function Header() {
 	return (
 		<Container>
-			<IconButton>
+			<WrapperIconButton>
 				<Logo width={22} height={40} />
-			</IconButton>
+			</WrapperIconButton>
 			<Input placeholder="Procure seu livro..." />
-			<IconButton>
+			<WrapperIconButton>
 				<SearchIcon />
-			</IconButton>
+			</WrapperIconButton>
 		</Container>
 	);
 }
