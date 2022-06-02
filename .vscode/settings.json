@@ -19,6 +19,7 @@
 		"Component: WrapperIconButtonProps",
 		"Component: Spacer",
 		"Component: ImageArea",
-		"Component: ToggleButton"
+		"Component: ToggleButton",
+		"Component: ToggleButtonForm"
 	]
 }
