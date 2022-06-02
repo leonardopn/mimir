@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 interface ContainerProps {
 	error?: string;
 	height?: number;
+	isFocused?: boolean;
 }
 
 export const Container = styled(TextInput)<ContainerProps>`
@@ -13,8 +14,13 @@ export const Container = styled(TextInput)<ContainerProps>`
 	border-radius: 10px;
 	height: ${({ height }) => (height ? RFValue(height) : RFValue(115))}px;
 	padding: 15px;
-	border: ${({ error }) => (error ? "2px" : "1px")} solid
-		${({ theme, error }) => (error ? theme.colors.ATTENTION : theme.colors.TEXT_LIGHT)};
+	border: ${({ error, isFocused }) => (error || isFocused ? "2px" : "1px")} solid
+		${({ theme, error, isFocused }) =>
+			error
+				? theme.colors.ATTENTION
+				: isFocused
+				? theme.colors.PRIMARY
+				: theme.colors.TEXT_LIGHT};
 `;
 
 export const Label = styled.Text`
