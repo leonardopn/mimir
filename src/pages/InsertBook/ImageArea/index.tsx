@@ -9,7 +9,7 @@ import { ButtonArea, Container, ImageBook, ImageBookEmpty, ImageBookWrapper } fr
 
 interface ImageAreaProps<T> {
 	//*React Hook Form
-	control?: Control<T>;
+	control: Control<T>;
 	name: FieldPath<T>;
 }
 

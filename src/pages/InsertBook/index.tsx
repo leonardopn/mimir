@@ -7,6 +7,7 @@ import { InputForm } from "../../components/Forms/InputForm";
 import { InputMultiLineForm } from "../../components/Forms/InputMultiLineForm";
 import { WrapperIconButton } from "../../components/Forms/WrapperIconButton";
 import { Title } from "../../components/Text/Title";
+import { useControllerContext } from "../../context/Form.context";
 import { ImageArea } from "./ImageArea";
 import {
 	ButtonMoreFields,
@@ -28,6 +29,8 @@ import {
 interface FormData {
 	title: string;
 	author: string;
+	isFavorited: boolean;
+	addInWishList: boolean;
 	publisher?: string;
 	description?: string;
 	image?: string;
@@ -36,19 +39,27 @@ interface FormData {
 const formSchema = yup.object({
 	title: yup.string().required("Título é obrigatório."),
 	author: yup.string().required("Autor é obrigatório."),
+	isFavorited: yup.boolean(),
+	addInWishList: yup.boolean(),
 	publisher: yup.string(),
 	description: yup.string(),
 });
 
 export function InsertBook() {
 	const [showInputsFormAreaHidden, setShowInputsFormAreaHidden] = useState(false);
+	const { setForm } = useControllerContext();
+
+	const form = useForm<FormData>({
+		resolver: yupResolver(formSchema),
+		defaultValues: { title: "", author: "", isFavorited: false, addInWishList: false },
+	});
 
 	const {
 		control,
 		handleSubmit,
 		resetField,
 		formState: { errors },
-	} = useForm<FormData>({ resolver: yupResolver(formSchema), defaultValues: { title: "" } });
+	} = form;
 
 	const handleAddBook: SubmitHandler<FormData> = async values => {
 		try {
@@ -57,6 +68,13 @@ export function InsertBook() {
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		setForm(form);
+		return () => {
+			setForm(undefined);
+		};
+	}, [form]);
 
 	useEffect(() => {
 		resetField("description");
