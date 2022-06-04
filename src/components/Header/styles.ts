@@ -7,9 +7,13 @@ export const Container = styled.View`
 	flex-direction: row;
 	background-color: ${({ theme }) => theme.colors.PRIMARY};
 	height: ${RFValue(70)}px;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	padding: 20px;
+`;
+
+export const WrapperButtons = styled.View`
+	flex-direction: row;
 `;
 
 export const Logo = styled(LogoMimir)`
