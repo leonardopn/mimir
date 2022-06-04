@@ -20,6 +20,8 @@
 		"Component: Spacer",
 		"Component: ImageArea",
 		"Component: ToggleButton",
-		"Component: ToggleButtonForm"
+		"Component: ToggleButtonForm",
+		"Context: Form",
+		"Component: FavoriteButton"
 	]
 }
