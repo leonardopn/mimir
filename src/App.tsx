@@ -10,6 +10,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { StatusBar, Text, View } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import { Header } from "./components/Header";
+import { ControllerProvider } from "./context/Form.context";
 import theme from "./global/styles/theme";
 import { AppRoutes } from "./Routes/app.routes";
 
@@ -53,13 +54,15 @@ export default function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-				<StatusBar backgroundColor={theme.colors.PRIMARY} />
-				<Header />
-				<NavigationContainer>
-					<AppRoutes />
-				</NavigationContainer>
-			</View>
+			<ControllerProvider>
+				<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+					<StatusBar backgroundColor={theme.colors.PRIMARY} />
+					<Header />
+					<NavigationContainer>
+						<AppRoutes />
+					</NavigationContainer>
+				</View>
+			</ControllerProvider>
 		</ThemeProvider>
 	);
 }
