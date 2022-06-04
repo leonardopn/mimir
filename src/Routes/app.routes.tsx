@@ -28,6 +28,7 @@ export function AppRoutes() {
 					borderTopStartRadius: 15,
 					borderTopEndRadius: 15,
 				},
+				unmountOnBlur: true,
 			}}>
 			<Screen
 				options={{
