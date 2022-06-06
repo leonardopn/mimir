@@ -23,6 +23,7 @@
 		"Component: ToggleButtonForm",
 		"Context: Form",
 		"Component: FavoriteButton",
-		"Component: WishListButton"
+		"Component: WishListButton",
+		"Component: ToggleIconButton"
 	]
 }
