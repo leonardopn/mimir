@@ -7,19 +7,24 @@ import {
 	FontAwesomeIcon,
 	FoundationIcon,
 	MaterialCommunityIconsIcon,
-	MaterialIconsIcons,
+	MaterialIconsIcons
 } from "./styles";
 
-export interface VectorIconProps {
-	iconFamily:
-		| "ant_design"
-		| "material_community"
-		| "material"
-		| "foundation"
-		| "font_awesome"
-		| "font_awesome_5"
-		| "entypo";
+export type FamilyIconName =
+	| "ant_design"
+	| "material_community"
+	| "material"
+	| "foundation"
+	| "font_awesome"
+	| "font_awesome_5"
+	| "entypo";
+
+export interface IconProps {
+	iconFamily: FamilyIconName;
 	name: string;
+}
+
+export interface VectorIconProps extends IconProps {
 	style?: StyleProp<TextStyle>;
 }
 
