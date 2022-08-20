@@ -25,6 +25,7 @@
 		"Component: FavoriteButton",
 		"Component: WishListButton",
 		"Component: ToggleIconButton",
-		"Component: ButtonSelectStep"
+		"Component: ButtonSelectStep",
+		"Component: InsertBook(StepOne)"
 	]
 }
