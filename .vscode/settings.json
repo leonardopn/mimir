@@ -24,6 +24,7 @@
 		"Context: Form",
 		"Component: FavoriteButton",
 		"Component: WishListButton",
-		"Component: ToggleIconButton"
+		"Component: ToggleIconButton",
+		"Component: ButtonSelectStep"
 	]
 }
