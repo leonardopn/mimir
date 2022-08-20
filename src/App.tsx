@@ -15,6 +15,7 @@ import { ControllerProvider } from "./context/Form.context";
 import theme from "./global/styles/theme";
 import { AppRoutes } from "./Routes/app.routes";
 import { store } from "./store/store";
+import "react-native-gesture-handler";
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);

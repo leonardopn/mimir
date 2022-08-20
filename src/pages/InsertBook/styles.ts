@@ -77,3 +77,7 @@ export const TextButtonMoreFields = styled.Text`
 `;
 
 export const InputsFormAreaHidden = styled.View``;
+
+export const Content = styled.View`
+	flex: 1;
+`;
