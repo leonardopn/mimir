@@ -30,6 +30,7 @@
 		"Component: HeaderStack",
 		"Routes: InsertBookRoutes",
 		"Component: InsertBook(StepTwo)",
-		"Component: SquareSelectOption"
+		"Component: SquareSelectOption",
+		"Context: FormInsertBook"
 	]
 }
