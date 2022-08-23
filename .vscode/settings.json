@@ -27,6 +27,7 @@
 		"Component: ToggleIconButton",
 		"Component: ButtonSelectStep",
 		"Component: InsertBook(StepOne)",
-		"Component: HeaderStack"
+		"Component: HeaderStack",
+		"Routes: InsertBookRoutes"
 	]
 }
