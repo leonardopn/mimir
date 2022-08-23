@@ -26,6 +26,7 @@
 		"Component: WishListButton",
 		"Component: ToggleIconButton",
 		"Component: ButtonSelectStep",
-		"Component: InsertBook(StepOne)"
+		"Component: InsertBook(StepOne)",
+		"Component: HeaderStack"
 	]
 }
