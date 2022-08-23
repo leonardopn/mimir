@@ -29,6 +29,7 @@
 		"Component: InsertBook(StepOne)",
 		"Component: HeaderStack",
 		"Routes: InsertBookRoutes",
-		"Component: InsertBook(StepTwo)"
+		"Component: InsertBook(StepTwo)",
+		"Component: SquareSelectOption"
 	]
 }
