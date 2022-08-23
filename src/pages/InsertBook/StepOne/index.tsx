@@ -1,12 +1,20 @@
+import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import { useTheme } from "styled-components";
 import { ButtonSelectStep } from "../../../components/ButtonSelectStep";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
+import { RootStackParamList } from "../../../Routes/insertBook/stack.routes";
 import { ButtonWrapper, Container, Content, SubTitle, TextWrapper, Title } from "./styles";
 
-export function StepOne() {
+interface StepOneProps extends StackScreenProps<RootStackParamList, "insertBook-stepOne"> {}
+
+export function StepOne({ navigation }: StepOneProps) {
 	const theme = useTheme();
+
+	function handleNext(page: keyof RootStackParamList) {
+		navigation.navigate(page);
+	}
 
 	return (
 		<Container>
@@ -20,7 +28,9 @@ export function StepOne() {
 					</SubTitle>
 				</TextWrapper>
 				<ButtonWrapper>
-					<ButtonSelectStep icon={{ iconFamily: "entypo", name: "keyboard" }}>
+					<ButtonSelectStep
+						onPress={() => handleNext("insertBook-stepTwo")}
+						icon={{ iconFamily: "entypo", name: "keyboard" }}>
 						Adicionar dados manualmente
 					</ButtonSelectStep>
 					<Spacer spacing={7.5} />
