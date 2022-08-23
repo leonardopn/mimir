@@ -28,6 +28,7 @@
 		"Component: ButtonSelectStep",
 		"Component: InsertBook(StepOne)",
 		"Component: HeaderStack",
-		"Routes: InsertBookRoutes"
+		"Routes: InsertBookRoutes",
+		"Component: InsertBook(StepTwo)"
 	]
 }
