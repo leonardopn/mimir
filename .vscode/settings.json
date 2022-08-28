@@ -31,6 +31,7 @@
 		"Routes: InsertBookRoutes",
 		"Component: InsertBook(StepTwo)",
 		"Component: SquareSelectOption",
-		"Context: FormInsertBook"
+		"Context: FormInsertBook",
+		"Component: SquareSelectOptionForm"
 	]
 }
