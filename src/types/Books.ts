@@ -5,4 +5,6 @@ export interface Book {
 	publisher: string;
 	description?: string;
 	image?: string;
+	isFavorited: boolean;
+	isWished: boolean;
 }
