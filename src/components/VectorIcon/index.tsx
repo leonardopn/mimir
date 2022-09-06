@@ -7,7 +7,7 @@ import {
 	FontAwesomeIcon,
 	FoundationIcon,
 	MaterialCommunityIconsIcon,
-	MaterialIconsIcons
+	MaterialIconsIcons,
 } from "./styles";
 
 export type FamilyIconName =

@@ -9,7 +9,7 @@ export const Container = styled.View`
 export const Content = styled.View`
 	flex-direction: row;
 	flex: 1;
-    justify-content: center;
+	justify-content: center;
 `;
 
 export const Divider = styled.View`

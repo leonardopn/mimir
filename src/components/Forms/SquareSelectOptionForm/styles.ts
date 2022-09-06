@@ -9,7 +9,7 @@ export const Container = styled.TouchableOpacity<{ color?: string }>`
 	border-radius: 5px;
 	width: 95px;
 	height: 85px;
-	
+
 	color: ${({ theme }) => theme.colors.WHITE};
 	background-color: ${({ theme, color }) => (color ? color : theme.colors.PRIMARY)};
 `;

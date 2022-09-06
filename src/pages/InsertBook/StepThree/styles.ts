@@ -37,12 +37,8 @@ export const InputWrapper = styled.View`
 	flex: 1;
 `;
 
-export const Input = styled(InputForm)`
-	
-` as typeof InputForm;
-export const InputMultiLine = styled(InputMultiLineForm)`
-	
-` as typeof InputMultiLineForm;
+export const Input = styled(InputForm)`` as typeof InputForm;
+export const InputMultiLine = styled(InputMultiLineForm)`` as typeof InputMultiLineForm;
 
 export const ButtonWrapper = styled.View`
 	flex-direction: row;
