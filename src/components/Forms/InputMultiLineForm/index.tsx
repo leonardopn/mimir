@@ -1,9 +1,9 @@
 import React from "react";
-import { Control, Controller, FieldError, FieldPath, RegisterOptions } from "react-hook-form";
+import { Control, Controller, FieldError, FieldPath, FieldValues, RegisterOptions } from "react-hook-form";
 import { InputProps } from "../Input/index";
 import { InputMultiLine } from "../InputMultiLine";
 
-interface InputMultiLineFormProps<T> extends InputProps {
+interface InputMultiLineFormProps<T extends FieldValues> extends InputProps {
 	//*React Hook Form
 	error?: FieldError;
 	enableTextError?: boolean;
@@ -12,7 +12,7 @@ interface InputMultiLineFormProps<T> extends InputProps {
 	rules?: RegisterOptions<T>;
 }
 
-export function InputMultiLineForm<T>({
+export function InputMultiLineForm<T extends FieldValues>({
 	name,
 	control,
 	rules,

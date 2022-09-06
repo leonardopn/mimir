@@ -9,7 +9,6 @@ interface ContainerProps {
 }
 
 export const Container = styled(TextInput)<ContainerProps>`
-	flex: 1;
 	background-color: white;
 	border-radius: 10px;
 	height: ${({ height }) => (height ? RFValue(height) : RFValue(115))}px;
