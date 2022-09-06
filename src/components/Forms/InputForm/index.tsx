@@ -16,7 +16,7 @@ export interface InputFormProps<T extends FieldValues> extends InputProps {
 	enableTextError?: boolean;
 	control?: Control<T>;
 	name: FieldPath<T>;
-	rules: RegisterOptions<T>;
+	rules?: RegisterOptions<T>;
 }
 
 export function InputForm<T extends FieldValues>({
