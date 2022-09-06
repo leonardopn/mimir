@@ -4,7 +4,8 @@ import { TouchableOpacityProps } from "react-native";
 import { VectorIconProps } from "../../VectorIcon";
 import SquareSelectOption from "../SquareSelectOption";
 
-interface SquareSelectOptionFormProps<T extends FieldValues> extends Omit<TouchableOpacityProps, "accessibilityRole"> {
+interface SquareSelectOptionFormProps<T extends FieldValues>
+	extends Omit<TouchableOpacityProps, "accessibilityRole"> {
 	children: ReactNode;
 	icon: VectorIconProps;
 	color?: string;

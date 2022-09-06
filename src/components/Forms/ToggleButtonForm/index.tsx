@@ -1,9 +1,16 @@
 import React from "react";
-import { Control, Controller, FieldError, FieldPath, RegisterOptions } from "react-hook-form";
+import {
+	Control,
+	Controller,
+	FieldError,
+	FieldPath,
+	FieldValues,
+	RegisterOptions,
+} from "react-hook-form";
 import { SwitchProps } from "react-native";
 import { ToggleButton } from "../ToggleButton";
 
-export interface ToggleButtonFormProps<T> extends SwitchProps {
+export interface ToggleButtonFormProps<T extends FieldValues> extends SwitchProps {
 	//*React Hook Form
 	error?: FieldError;
 	enableTextError?: boolean;
@@ -12,7 +19,12 @@ export interface ToggleButtonFormProps<T> extends SwitchProps {
 	rules?: RegisterOptions<T>;
 }
 
-export function ToggleButtonForm<T>({ name, rules, control, ...rest }: ToggleButtonFormProps<T>) {
+export function ToggleButtonForm<T extends FieldValues>({
+	name,
+	rules,
+	control,
+	...rest
+}: ToggleButtonFormProps<T>) {
 	return (
 		<Controller
 			name={name}
