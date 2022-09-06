@@ -33,6 +33,7 @@
 		"Component: SquareSelectOption",
 		"Context: FormInsertBook",
 		"Component: SquareSelectOptionForm",
-		"Type: Book"
+		"Type: Book",
+		"Component: InsertBook(StepThree)"
 	]
 }
