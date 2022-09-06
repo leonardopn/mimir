@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
-import { Control, Controller, FieldPath, RegisterOptions } from "react-hook-form";
+import { Control, Controller, FieldPath, FieldValues, RegisterOptions } from "react-hook-form";
 import { TouchableOpacityProps } from "react-native";
 import { VectorIconProps } from "../../VectorIcon";
 import SquareSelectOption from "../SquareSelectOption";
 
-interface SquareSelectOptionFormProps<T> extends Omit<TouchableOpacityProps, "accessibilityRole"> {
+interface SquareSelectOptionFormProps<T extends FieldValues> extends Omit<TouchableOpacityProps, "accessibilityRole"> {
 	children: ReactNode;
 	icon: VectorIconProps;
 	color?: string;
@@ -16,7 +16,7 @@ interface SquareSelectOptionFormProps<T> extends Omit<TouchableOpacityProps, "ac
 	rules?: RegisterOptions<T>;
 }
 
-export function SquareSelectOptionForm<T>({
+export function SquareSelectOptionForm<T extends FieldValues>({
 	children,
 	icon,
 	color,
