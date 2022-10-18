@@ -4,13 +4,10 @@ import { InputForm } from "../../../components/Forms/InputForm";
 import { InputMultiLineForm } from "../../../components/Forms/InputMultiLineForm";
 
 export const Container = styled.View`
-	flex: 1;
+	height: 100%;
 `;
 
-export const Content = styled.View`
-	flex: 1;
-	justify-content: space-between;
-`;
+export const Content = styled.ScrollView``;
 
 export const TextWrapper = styled.View`
 	justify-content: center;
@@ -33,11 +30,10 @@ export const SubTitle = styled.Text`
 	margin-top: 10px;
 `;
 
-export const InputWrapper = styled.View`
-	flex: 1;
-`;
+export const InputWrapper = styled.View``;
 
 export const Input = styled(InputForm)`` as typeof InputForm;
+
 export const InputMultiLine = styled(InputMultiLineForm)`` as typeof InputMultiLineForm;
 
 export const ButtonWrapper = styled.View`
