@@ -9,7 +9,7 @@ interface ContainerProps {
 export const Container = styled(TextInput)<ContainerProps>`
 	background-color: white;
 	border-radius: 10px;
-	height: ${RFValue(50)}px;
+	height: ${RFValue(60)}px;
 	padding: 15px;
 	border: ${({ error, isFocused }) => (error || isFocused ? "2px" : "1px")} solid
 		${({ theme, error, isFocused }) =>
