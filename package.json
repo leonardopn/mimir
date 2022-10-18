@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "expo start --dev-client",
+    "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
@@ -61,7 +61,6 @@
   },
   "private": true,
   "resolutions": {
-    "@types/react": "^17",
-    "react-devtools-core": "4.14.0"
+    "@types/react": "^17"
   }
 }
