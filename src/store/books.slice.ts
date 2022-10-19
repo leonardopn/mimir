@@ -16,6 +16,8 @@ export const BooksSlice = createSlice({
 	reducers: {
 		setBooks: (state, action: PayloadAction<Book[]>) =>
 			update(state, { books: { $set: action.payload } }),
+		addBook: (state, action: PayloadAction<Book>) =>
+			update(state, { books: { $push: [action.payload] } }),
 		setFetching: (state, action: PayloadAction<boolean>) =>
 			update(state, { isFetching: { $set: action.payload } }),
 		setIsError: (state, action: PayloadAction<boolean>) =>
@@ -23,6 +25,6 @@ export const BooksSlice = createSlice({
 	},
 });
 
-export const { setIsError, setFetching } = BooksSlice.actions;
+export const { setIsError, setFetching, addBook } = BooksSlice.actions;
 
 export default BooksSlice.reducer;
