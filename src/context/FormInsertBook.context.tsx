@@ -1,6 +1,8 @@
 import React, { createContext, ReactNode, useContext } from "react";
 import { useForm, UseFormReturn } from "react-hook-form";
 import { Book } from "../types/Books";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup/src/yup";
 
 export interface InsertBookForm extends Omit<Book, "id"> {}
 
@@ -12,11 +14,20 @@ interface FormInsertBookContextProps {
 	form: UseFormReturn<InsertBookForm, any>;
 }
 
+const schema = yup
+	.object({
+		title: yup.string().required("Título é obrigatório"),
+		author: yup.string().required("Autor é obrigatório"),
+		publisher: yup.string().required("Editora é obrigatória"),
+	})
+	.required();
+
 const FormInsertBookContext = createContext({} as FormInsertBookContextProps);
 
 export function FormInsertBookProvider({ children }: FormInsertBookProviderProps) {
 	//TODO: Implementar validador do yup
 	const form = useForm<InsertBookForm>({
+		resolver: yupResolver(schema),
 		defaultValues: {
 			isFavorited: false,
 			isWished: false,
