@@ -35,6 +35,7 @@
 		"Component: SquareSelectOptionForm",
 		"Type: Book",
 		"Component: InsertBook(StepThree)",
-		"Component: InsertBook(StepFour)"
+		"Component: InsertBook(StepFour)",
+		"Redux"
 	]
 }
