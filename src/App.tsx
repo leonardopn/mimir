@@ -14,8 +14,9 @@ import { Header } from "./components/Header";
 import { ControllerProvider } from "./context/Form.context";
 import theme from "./global/styles/theme";
 import { AppRoutes } from "./Routes/app.routes";
-import { store } from "./store/store";
+import { store, persistor } from "./store/store";
 import "react-native-gesture-handler";
+import { PersistGate } from "redux-persist/integration/react";
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
@@ -57,17 +58,19 @@ export default function App() {
 
 	return (
 		<Provider store={store}>
-			<ThemeProvider theme={theme}>
-				<ControllerProvider>
-					<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-						<StatusBar backgroundColor={theme.colors.PRIMARY} />
-						<Header />
-						<NavigationContainer>
-							<AppRoutes />
-						</NavigationContainer>
-					</View>
-				</ControllerProvider>
-			</ThemeProvider>
+			<PersistGate loading={null} persistor={persistor}>
+				<ThemeProvider theme={theme}>
+					<ControllerProvider>
+						<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+							<StatusBar backgroundColor={theme.colors.PRIMARY} />
+							<Header />
+							<NavigationContainer>
+								<AppRoutes />
+							</NavigationContainer>
+						</View>
+					</ControllerProvider>
+				</ThemeProvider>
+			</PersistGate>
 		</Provider>
 	);
 }

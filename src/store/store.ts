@@ -1,11 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import BooksSlice from "./books.slice";
+import { persistReducer, persistStore } from "redux-persist";
+import { rootPersistConfig, rootReducer } from "./reducers";
 
 export const store = configureStore({
-	reducer: {
-		books: BooksSlice,
-	},
+	reducer: persistReducer(rootPersistConfig, rootReducer),
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+			immutableCheck: false,
+		}),
 });
+
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 

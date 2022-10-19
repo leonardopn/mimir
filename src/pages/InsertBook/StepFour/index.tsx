@@ -9,7 +9,7 @@ import { ImageArea } from "./ImageArea";
 import { Container, Content, SubTitle, Title, TextWrapper } from "./styles";
 import { v4 } from "uuid";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
-import { addBook } from "../../../store/books.slice";
+import { addBook } from "../../../store/slices/books.slice";
 
 interface StepFourProps extends StackScreenProps<RootStackParamList, "insertBook-stepFour"> {}
 

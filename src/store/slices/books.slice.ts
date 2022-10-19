@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import update from "immutability-helper";
-import { Book } from "../types/Books";
+import { Book } from "../../types/Books";
 
-export type BooksState = Readonly<{ books: Book[]; isFetching: boolean; isError: boolean }>;
+export type BooksState = Readonly<{ data: Book[]; isFetching: boolean; isError: boolean }>;
 
 const initialState: BooksState = {
-	books: [],
+	data: [],
 	isFetching: false,
 	isError: false,
 };
@@ -15,9 +15,9 @@ export const BooksSlice = createSlice({
 	initialState,
 	reducers: {
 		setBooks: (state, action: PayloadAction<Book[]>) =>
-			update(state, { books: { $set: action.payload } }),
+			update(state, { data: { $set: action.payload } }),
 		addBook: (state, action: PayloadAction<Book>) =>
-			update(state, { books: { $push: [action.payload] } }),
+			update(state, { data: { $push: [action.payload] } }),
 		setFetching: (state, action: PayloadAction<boolean>) =>
 			update(state, { isFetching: { $set: action.payload } }),
 		setIsError: (state, action: PayloadAction<boolean>) =>
