@@ -6,6 +6,7 @@ import Foundation from "react-native-vector-icons/Foundation";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Entypo from "react-native-vector-icons/Entypo";
+import Feather from "react-native-vector-icons/Feather";
 
 export const AntDesignIcon = styled(AntDesign)``;
 
@@ -22,3 +23,5 @@ export const FontAwesomeIcon = styled(FontAwesome)`
 export const FontAwesome5Icon = styled(FontAwesome5)``;
 
 export const EntypoIcon = styled(Entypo)``;
+
+export const FeatherIcon = styled(Feather)``;

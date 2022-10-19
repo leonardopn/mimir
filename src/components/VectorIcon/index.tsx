@@ -8,6 +8,7 @@ import {
 	FoundationIcon,
 	MaterialCommunityIconsIcon,
 	MaterialIconsIcons,
+	FeatherIcon,
 } from "./styles";
 
 export type FamilyIconName =
@@ -17,6 +18,7 @@ export type FamilyIconName =
 	| "foundation"
 	| "font_awesome"
 	| "font_awesome_5"
+	| "feather"
 	| "entypo";
 
 export interface IconProps {
@@ -44,6 +46,8 @@ export function VectorIcon({ iconFamily, name, style }: VectorIconProps) {
 			return <EntypoIcon name={name} style={style} />;
 		case "material":
 			return <MaterialIconsIcons name={name} style={style} />;
+		case "feather":
+			return <FeatherIcon name={name} style={style} />;
 		default:
 			return null;
 	}
