@@ -1,16 +1,16 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
-import { VectorIcon } from "../../../components/VectorIcon";
+import { VectorIcon } from "../../../../components/VectorIcon";
 
 export const Container = styled.View`
+	margin: 30px 0;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	justify-content: space-evenly;
 `;
 
-export const ButtonArea = styled.View`
-	display: flex;
-`;
+export const ButtonWrapper = styled.View``;
 
 export const ImageBookWrapper = styled.View<{ isEmpty: boolean }>`
 	height: ${RFValue(230)}px;
