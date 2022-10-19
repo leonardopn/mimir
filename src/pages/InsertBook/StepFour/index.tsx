@@ -7,9 +7,9 @@ import { RootStackParamList } from "../../../Routes/insertBook/stack.routes";
 import { Book } from "../../../types/Books";
 import { ImageArea } from "./ImageArea";
 import { Container, Content, SubTitle, Title, TextWrapper } from "./styles";
-import { v4 } from "uuid";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { addBook } from "../../../store/slices/books.slice";
+import { uuidv4 } from "../../../utils/uuid";
 
 interface StepFourProps extends StackScreenProps<RootStackParamList, "insertBook-stepFour"> {}
 
@@ -22,7 +22,7 @@ export function StepFour({ navigation }: StepFourProps) {
 
 	const onSubmit = handleSubmit(data => {
 		const bookToAdd: Book = {
-			id: v4(),
+			id: uuidv4(),
 			...data,
 		};
 		dispatch(addBook(bookToAdd));
