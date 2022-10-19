@@ -1,6 +1,11 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React, { useEffect } from "react";
-import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback } from "react-native";
+import {
+	Keyboard,
+	KeyboardAvoidingView,
+	ToastAndroid,
+	TouchableWithoutFeedback,
+} from "react-native";
 import { Button } from "../../../components/Forms/Button";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
@@ -12,7 +17,7 @@ interface StepThreeProps extends StackScreenProps<RootStackParamList, "insertBoo
 
 export function StepThree({ navigation }: StepThreeProps) {
 	const {
-		form: { control, watch, setValue },
+		form: { control, watch, setValue, trigger },
 	} = useFormInsertBookContext();
 
 	const isFavorited = watch("isFavorited");
@@ -30,8 +35,17 @@ export function StepThree({ navigation }: StepThreeProps) {
 		}
 	}, [isWished]);
 
-	function handleNext() {
-		navigation.navigate("insertBook-stepFour");
+	async function handleNext() {
+		const isValid = await trigger(undefined, { shouldFocus: true });
+		if (isValid) {
+			navigation.navigate("insertBook-stepFour");
+		} else {
+			ToastAndroid.showWithGravity(
+				"Preencha os campos obrigatórios",
+				ToastAndroid.SHORT,
+				ToastAndroid.TOP
+			);
+		}
 	}
 
 	return (
