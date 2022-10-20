@@ -12,11 +12,12 @@ export const Container = styled.View`
 
 export const ButtonWrapper = styled.View``;
 
-export const ImageBookWrapper = styled.View<{ isEmpty: boolean }>`
+export const ImageBookWrapper = styled.View.attrs(({ theme }) => ({ ...theme.shadow.default }))<{
+	isEmpty: boolean;
+}>`
 	height: ${RFValue(230)}px;
 	width: ${RFValue(180)}px;
 	background-color: ${({ theme }) => theme.colors.WHITE};
-	border: 1px solid ${({ theme }) => theme.colors.TEXT_LIGHT};
 	align-self: center;
 	border-radius: 10px;
 	margin-bottom: 10px;

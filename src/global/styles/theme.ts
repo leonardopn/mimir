@@ -22,6 +22,15 @@ export default {
 		bold: "Montserrat_700Bold",
 	},
 	shadow: {
-		default: "0px 2px 5px -1px rgba(50, 50, 93, 0.25), 0px 1px 3px -1px rgba(0, 0, 0, 0.3)",
+		default: {
+			shadowColor: "#000",
+			shadowOffset: {
+				width: 0,
+				height: 1,
+			},
+			shadowOpacity: 0.18,
+			shadowRadius: 1.0,
+			elevation: 3,
+		},
 	},
 };
