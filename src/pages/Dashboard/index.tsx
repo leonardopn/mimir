@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FlatList } from "react-native";
 import { CardBook } from "../../components/CardBook";
 import { useAppSelector } from "../../hooks/useAppSelector";
@@ -6,6 +6,8 @@ import { Container, Header, RecentlyAdded, RecentlyAddedHeader, Title } from "./
 
 export function Dashboard() {
 	const { data: books } = useAppSelector(state => state.books);
+
+	const reverseBooks = useMemo(() => [...books].reverse(), [books]);
 
 	return (
 		<Container>
@@ -15,7 +17,7 @@ export function Dashboard() {
 						<Title>Adicionados recentemente</Title>
 					</RecentlyAddedHeader>
 					<FlatList
-						data={books.reverse()}
+						data={reverseBooks}
 						renderItem={({ item }) => (
 							<CardBook
 								title={item.title}
