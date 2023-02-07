@@ -37,6 +37,7 @@
 		"Component: InsertBook(StepThree)",
 		"Component: InsertBook(StepFour)",
 		"Redux",
-		"Slice: Book"
+		"Slice: Book",
+		"Hook: useBooks"
 	]
 }
