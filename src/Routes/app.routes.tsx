@@ -8,6 +8,12 @@ import { useTheme } from "styled-components";
 import { Dashboard } from "../pages/Dashboard";
 import { InsertBook } from "../pages/InsertBook";
 
+export type RootBottomTabParamList = {
+	Home: undefined;
+	Favoritos: undefined;
+	Adicionar: undefined;
+};
+
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export function AppRoutes() {
