@@ -22,8 +22,8 @@ export function ImageArea() {
 	async function handleOpenGallery() {
 		try {
 			const result = await ImagePicker.launchImageLibraryAsync();
-			if (!result.cancelled) {
-				onChange(result.uri);
+			if (!result.canceled) {
+				onChange(result.assets[0].uri);
 			} else {
 				onChange("");
 			}
@@ -38,8 +38,8 @@ export function ImageArea() {
 	async function handleOpenCamera() {
 		try {
 			const result = await ImagePicker.launchCameraAsync();
-			if (!result.cancelled) {
-				onChange(result.uri);
+			if (!result.canceled) {
+				onChange(result.assets[0].uri);
 			} else {
 				onChange("");
 			}
