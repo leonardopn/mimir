@@ -15,7 +15,7 @@ export const ButtonWrapper = styled.View``;
 export const ImageBookWrapper = styled.View.attrs(({ theme }) => ({ ...theme.shadow.default }))<{
 	isEmpty: boolean;
 }>`
-	height: ${RFValue(230)}px;
+	height: ${RFValue(260)}px;
 	width: ${RFValue(180)}px;
 	background-color: ${({ theme }) => theme.colors.WHITE};
 	align-self: center;
