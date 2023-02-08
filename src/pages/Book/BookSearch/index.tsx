@@ -24,14 +24,12 @@ export function BookSearch({}: BookSearchProps) {
 				</TextWrapper>
 
 				<InputWrapper>
-					<Input
-						style={{ flex: 1, height: RFValue(45) }}
-						placeholder="ISBN, título, autor..."
-					/>
+					<Input style={{ flex: 1 }} placeholder="ISBN, título, autor..." />
 					<Spacer spacing={5} />
 					<IconButton
 						icon={{ iconFamily: "font_awesome", name: "search" }}
-						color={theme.colors.SECONDARY}
+						color={theme.colors.TERTIARY}
+						iconColor={theme.colors.SECONDARY}
 					/>
 				</InputWrapper>
 				<Spacer spacing={7.5} />
