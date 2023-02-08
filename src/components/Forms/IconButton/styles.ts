@@ -17,7 +17,7 @@ export const Container = styled(WrapperIconButton)<{ color?: Color | string }>`
 	border-radius: 5px;
 `;
 
-export const Icon = styled(VectorIcon)`
+export const Icon = styled(VectorIcon)<{ iconColor: Color | string }>`
 	font-size: ${RFValue(25)}px;
-	color: ${({ theme }) => theme.colors.WHITE};
+	color: ${({ theme, iconColor }) => iconColor || theme.colors.WHITE};
 `;
