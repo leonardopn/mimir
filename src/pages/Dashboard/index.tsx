@@ -5,7 +5,7 @@ import { ButtonSelectStep } from "../../components/ButtonSelectStep";
 import { CardBook } from "../../components/CardBook";
 import { useBooks } from "../../hooks/store/useBooks";
 import { RootBottomTabParamList } from "../../Routes/app.routes";
-import { BookStackParamList } from "../../Routes/Dashboard/stack.routes";
+import { DashboardStackParamList } from "../../Routes/Dashboard/stack.routes";
 import {
 	Container,
 	Header,
@@ -18,7 +18,7 @@ import {
 } from "./styles";
 
 interface DashboardProps
-	extends StackScreenProps<BookStackParamList & RootBottomTabParamList, "Dashboard-root"> {}
+	extends StackScreenProps<DashboardStackParamList & RootBottomTabParamList, "Dashboard-root"> {}
 
 export function Dashboard({ navigation }: DashboardProps) {
 	const { reverseBooks, hasBooks } = useBooks();
@@ -50,7 +50,7 @@ export function Dashboard({ navigation }: DashboardProps) {
 							data={reverseBooks}
 							renderItem={({ item }) => (
 								<CardBook
-									onPress={() => navigation.navigate("Dashboard-bookView")}
+									onPress={() => navigation.navigate("Book-view", { book: item })}
 									title={item.title}
 									author={item.author}
 									imageUrl={item.image || ""}
