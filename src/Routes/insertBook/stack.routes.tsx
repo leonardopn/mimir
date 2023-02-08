@@ -5,14 +5,14 @@ import { StepTwo } from "../../pages/InsertBook/StepTwo";
 import { StepThree } from "../../pages/InsertBook/StepThree";
 import { StepFour } from "../../pages/InsertBook/StepFour";
 
-export type RootStackParamList = {
+export type InsertBookStackParamList = {
 	"insertBook-stepOne": undefined;
 	"insertBook-stepTwo": undefined;
 	"insertBook-stepThree": undefined;
 	"insertBook-stepFour": undefined;
 };
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<InsertBookStackParamList>();
 export const stackName = "insertBook";
 
 export function InsertBookRoutes() {

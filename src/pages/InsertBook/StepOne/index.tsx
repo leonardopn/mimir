@@ -4,15 +4,15 @@ import { useTheme } from "styled-components";
 import { ButtonSelectStep } from "../../../components/ButtonSelectStep";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
-import { RootStackParamList } from "../../../Routes/insertBook/stack.routes";
+import { InsertBookStackParamList } from "../../../Routes/insertBook/stack.routes";
 import { ButtonWrapper, Container, Content, SubTitle, TextWrapper, Title } from "./styles";
 
-interface StepOneProps extends StackScreenProps<RootStackParamList, "insertBook-stepOne"> {}
+interface StepOneProps extends StackScreenProps<InsertBookStackParamList, "insertBook-stepOne"> {}
 
 export function StepOne({ navigation }: StepOneProps) {
 	const theme = useTheme();
 
-	function handleNext(page: keyof RootStackParamList) {
+	function handleNext(page: keyof InsertBookStackParamList) {
 		navigation.navigate(page);
 	}
 
