@@ -1,15 +1,14 @@
-import { RFValue } from "react-native-responsive-fontsize";
 import { useTheme } from "styled-components/native";
 import { ButtonSelectStep } from "../../../components/ButtonSelectStep";
 import { IconButton } from "../../../components/Forms/IconButton";
 import Input from "../../../components/Forms/Input";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
-import { Container, Content, Title, SubTitle, InputWrapper, TextWrapper } from "./styles";
+import { Container, Content, InputWrapper, SubTitle, TextWrapper, Title } from "./styles";
 
-interface BookSearchProps {}
+interface SearchBookProps {}
 
-export function BookSearch({}: BookSearchProps) {
+export function SearchBook({}: SearchBookProps) {
 	const theme = useTheme();
 
 	return (
