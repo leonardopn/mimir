@@ -1,10 +1,11 @@
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import { FlatList } from "react-native";
 import { ButtonSelectStep } from "../../components/ButtonSelectStep";
 import { CardBook } from "../../components/CardBook";
 import { useBooks } from "../../hooks/store/useBooks";
 import { RootBottomTabParamList } from "../../Routes/app.routes";
+import { BookStackParamList } from "../../Routes/Dashboard/stack.routes";
 import {
 	Container,
 	Header,
@@ -16,7 +17,8 @@ import {
 	Title,
 } from "./styles";
 
-interface DashboardProps extends BottomTabScreenProps<RootBottomTabParamList, "Adicionar"> {}
+interface DashboardProps
+	extends StackScreenProps<BookStackParamList & RootBottomTabParamList, "Dashboard-root"> {}
 
 export function Dashboard({ navigation }: DashboardProps) {
 	const { reverseBooks, hasBooks } = useBooks();
@@ -48,6 +50,7 @@ export function Dashboard({ navigation }: DashboardProps) {
 							data={reverseBooks}
 							renderItem={({ item }) => (
 								<CardBook
+									onPress={() => navigation.navigate("Dashboard-bookView")}
 									title={item.title}
 									author={item.author}
 									imageUrl={item.image || ""}

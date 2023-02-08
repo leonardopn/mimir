@@ -7,6 +7,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import { useTheme } from "styled-components";
 import { Dashboard } from "../pages/Dashboard";
 import { InsertBook } from "../pages/InsertBook";
+import { DashboardStackRoutes } from "./Dashboard/stack.routes";
 
 export type RootBottomTabParamList = {
 	Home: undefined;
@@ -44,7 +45,7 @@ export function AppRoutes() {
 					tabBarShowLabel: false,
 				}}
 				name="Home"
-				component={Dashboard}
+				component={DashboardStackRoutes}
 			/>
 			<Screen
 				options={{

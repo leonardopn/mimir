@@ -39,6 +39,7 @@
 		"Redux",
 		"Slice: Book",
 		"Hook: useBooks",
-		"Page: BookView"
+		"Page: BookView",
+		"Routes: Dashboard"
 	]
 }
