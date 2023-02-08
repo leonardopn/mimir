@@ -34,7 +34,9 @@ export function StepOne({ navigation }: StepOneProps) {
 						Adicionar dados manualmente
 					</ButtonSelectStep>
 					<Spacer spacing={7.5} />
-					<ButtonSelectStep icon={{ iconFamily: "font_awesome", name: "search" }}>
+					<ButtonSelectStep
+						icon={{ iconFamily: "font_awesome", name: "search" }}
+						onPress={() => handleNext("Book-search")}>
 						Procurar na base de dados
 					</ButtonSelectStep>
 					<Spacer spacing={7.5} />
