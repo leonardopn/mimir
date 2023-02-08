@@ -4,11 +4,18 @@ import { WrapperIconButton } from "../Forms/WrapperIconButton";
 import { useNavigation } from "@react-navigation/native";
 
 interface HeaderStackProps {
-	title: string;
+	title?: string;
 	showGoBack?: boolean;
+	showInfo?: boolean;
+	showDivider?: boolean;
 }
 
-export function HeaderStack({ title, showGoBack = false }: HeaderStackProps) {
+export function HeaderStack({
+	title,
+	showGoBack = false,
+	showInfo = false,
+	showDivider = true,
+}: HeaderStackProps) {
 	const navigate = useNavigation();
 
 	function handleGoBack() {
@@ -24,13 +31,15 @@ export function HeaderStack({ title, showGoBack = false }: HeaderStackProps) {
 					</WrapperIconButton>
 				)}
 				<Content>
-					<Title>{title}</Title>
-					<WrapperIconButton>
-						<InfoButton iconFamily="foundation" name="info" />
-					</WrapperIconButton>
+					{!!title && <Title>{title}</Title>}
+					{showInfo && (
+						<WrapperIconButton>
+							<InfoButton iconFamily="foundation" name="info" />
+						</WrapperIconButton>
+					)}
 				</Content>
 			</Container>
-			<Divider />
+			{showDivider && <Divider />}
 		</>
 	);
 }
