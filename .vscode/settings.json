@@ -40,6 +40,7 @@
 		"Slice: Book",
 		"Hook: useBooks",
 		"Page: BookView",
-		"Routes: Dashboard"
+		"Routes: Dashboard",
+		"Page: SearchBook"
 	]
 }
