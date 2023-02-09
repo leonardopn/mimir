@@ -43,6 +43,7 @@
 		"Routes: Dashboard",
 		"Page: SearchBook",
 		"Service: GoogleBooksApi",
-		"Page: SearchBookResult"
+		"Page: SearchBookResult",
+		"Component: CardBookHorizontal"
 	]
 }
