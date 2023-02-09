@@ -42,6 +42,7 @@
 		"Page: BookView",
 		"Routes: Dashboard",
 		"Page: SearchBook",
-		"Service: GoogleBooksApi"
+		"Service: GoogleBooksApi",
+		"Page: SearchBookResult"
 	]
 }
