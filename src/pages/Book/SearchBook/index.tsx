@@ -1,3 +1,5 @@
+import { StackScreenProps } from "@react-navigation/stack";
+import { useState } from "react";
 import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback } from "react-native";
 import { useTheme } from "styled-components/native";
 import { ButtonSelectStep } from "../../../components/ButtonSelectStep";
@@ -5,6 +7,7 @@ import { IconButton } from "../../../components/Forms/IconButton";
 import Input from "../../../components/Forms/Input";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
+import { InsertBookStackParamList } from "../../../Routes/insertBook/stack.routes";
 import {
 	Container,
 	Content,
@@ -15,10 +18,13 @@ import {
 	Title,
 } from "./styles";
 
-interface SearchBookProps {}
+interface SearchBookProps
+	extends StackScreenProps<InsertBookStackParamList, "insertBook-stepThree"> {}
 
-export function SearchBook({}: SearchBookProps) {
+export function SearchBook({ navigation }: SearchBookProps) {
 	const theme = useTheme();
+
+	const [search, setSearch] = useState("");
 
 	return (
 		<KeyboardAvoidingView>
@@ -33,12 +39,19 @@ export function SearchBook({}: SearchBookProps) {
 							</SubTitle>
 						</TextWrapper>
 						<InputWrapper>
-							<Input style={{ flex: 1 }} placeholder="ISBN, título, autor..." />
+							<Input
+								style={{ flex: 1 }}
+								placeholder="ISBN, título, autor..."
+								value={search}
+								onChangeText={value => setSearch(value)}
+							/>
 							<Spacer spacing={5} />
 							<IconButton
 								icon={{ iconFamily: "font_awesome", name: "search" }}
 								color={theme.colors.TERTIARY}
 								iconColor={theme.colors.SECONDARY}
+								// TODO: Implementar a busca
+								onPress={() => navigation.navigate("insertBook-stepFour")}
 							/>
 						</InputWrapper>
 						<Spacer spacing={7.5} />
