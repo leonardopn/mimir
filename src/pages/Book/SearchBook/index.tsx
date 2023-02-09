@@ -18,13 +18,20 @@ import {
 	Title,
 } from "./styles";
 
-interface SearchBookProps
-	extends StackScreenProps<InsertBookStackParamList, "insertBook-stepThree"> {}
+interface SearchBookProps extends StackScreenProps<InsertBookStackParamList, "Book-search"> {}
 
 export function SearchBook({ navigation }: SearchBookProps) {
 	const theme = useTheme();
 
 	const [search, setSearch] = useState("");
+
+	function handleSearchNavigate() {
+		if (search) {
+			navigation.navigate("Book-search-result", { search });
+		} else {
+			alert("Preencha o campo de busca");
+		}
+	}
 
 	return (
 		<KeyboardAvoidingView>
@@ -50,8 +57,7 @@ export function SearchBook({ navigation }: SearchBookProps) {
 								icon={{ iconFamily: "font_awesome", name: "search" }}
 								color={theme.colors.TERTIARY}
 								iconColor={theme.colors.SECONDARY}
-								// TODO: Implementar a busca
-								onPress={() => navigation.navigate("insertBook-stepFour")}
+								onPress={handleSearchNavigate}
 							/>
 						</InputWrapper>
 						<Spacer spacing={7.5} />

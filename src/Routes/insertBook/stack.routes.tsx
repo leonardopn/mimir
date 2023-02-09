@@ -5,6 +5,7 @@ import { StepTwo } from "../../pages/InsertBook/StepTwo";
 import { StepThree } from "../../pages/InsertBook/StepThree";
 import { StepFour } from "../../pages/InsertBook/StepFour";
 import { SearchBook } from "../../pages/Book/SearchBook";
+import { SearchBookResult } from "../../pages/Book/SearchBookResult";
 
 export type InsertBookStackParamList = {
 	"insertBook-stepOne": undefined;
@@ -12,6 +13,7 @@ export type InsertBookStackParamList = {
 	"insertBook-stepThree": undefined;
 	"insertBook-stepFour": undefined;
 	"Book-search": undefined;
+	"Book-search-result": { search: string };
 };
 
 const Stack = createStackNavigator<InsertBookStackParamList>();
@@ -22,6 +24,7 @@ export function InsertBookRoutes() {
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
 			<Stack.Screen name="insertBook-stepOne" component={StepOne} />
 			<Stack.Screen name="Book-search" component={SearchBook} />
+			<Stack.Screen name="Book-search-result" component={SearchBookResult} />
 			<Stack.Screen name="insertBook-stepTwo" component={StepTwo} />
 			<Stack.Screen name="insertBook-stepThree" component={StepThree} />
 			<Stack.Screen name="insertBook-stepFour" component={StepFour} />
