@@ -8,11 +8,11 @@ export interface IGoogleBooksApi {
 	volumeInfo: {
 		title: string;
 		subtitle: string;
-		authors: [string];
+		authors?: string[];
 		publisher: string;
 		publishedDate: string;
 		description: string;
-		industryIdentifiers: [
+		industryIdentifiers?: [
 			{
 				type: string;
 				identifier: string;
@@ -104,7 +104,7 @@ export interface IGoogleBooksApi {
 export interface GetGoogleBooksApi {
 	kind: string;
 	totalItems: number;
-	items: IGoogleBooksApi[];
+	items?: IGoogleBooksApi[];
 }
 
 export const googleBooksApi = axios.create({
