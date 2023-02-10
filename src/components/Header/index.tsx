@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { ToastAndroid } from "react-native";
 import { useControllerContext } from "../../context/Form.context";
+import { useConfigs } from "../../hooks/store/useConfigs";
 import { ToggleIconButton } from "../Forms/ToggleIconButton";
 import { WrapperIconButton } from "../Forms/WrapperIconButton";
 import { Spacer } from "../Spacer";
@@ -12,6 +13,9 @@ enum fields {
 }
 
 export function Header() {
+	const {
+		state: { showTopNavbar, isFullScreen },
+	} = useConfigs();
 	const { form } = useControllerContext();
 	const [isFavorited, setIsFavorited] = React.useState(false);
 	const [addWishListButton, setAddWishListButton] = React.useState(false);
@@ -42,6 +46,9 @@ export function Header() {
 			ToastAndroid.show("Adicionado à lista de desejos", ToastAndroid.SHORT);
 		}
 	}
+
+	if (!showTopNavbar) return null;
+	if (isFullScreen) return null;
 
 	return (
 		<Container>

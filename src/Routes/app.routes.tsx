@@ -8,6 +8,7 @@ import { useTheme } from "styled-components";
 import { Dashboard } from "../pages/Dashboard";
 import { InsertBook } from "../pages/InsertBook";
 import { DashboardStackRoutes } from "./Dashboard/stack.routes";
+import { useConfigs } from "../hooks/store/useConfigs";
 
 export type RootBottomTabParamList = {
 	Home: undefined;
@@ -19,6 +20,11 @@ const { Navigator, Screen } = createBottomTabNavigator();
 
 export function AppRoutes() {
 	const theme = useTheme();
+	const {
+		state: { showBottomNavbar, isFullScreen },
+	} = useConfigs();
+
+	const showTab = !isFullScreen && showBottomNavbar;
 
 	return (
 		<Navigator
@@ -34,6 +40,7 @@ export function AppRoutes() {
 					paddingVertical: Platform.OS === "ios" ? 20 : 0,
 					borderTopStartRadius: 15,
 					borderTopEndRadius: 15,
+					display: showTab ? "flex" : "none",
 				},
 				unmountOnBlur: true,
 			}}>
