@@ -44,6 +44,7 @@
 		"Page: SearchBook",
 		"Service: GoogleBooksApi",
 		"Page: SearchBookResult",
-		"Component: CardBookHorizontal"
+		"Component: CardBookHorizontal",
+		"Hook: useConfigs"
 	]
 }
