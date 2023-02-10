@@ -45,6 +45,7 @@
 		"Service: GoogleBooksApi",
 		"Page: SearchBookResult",
 		"Component: CardBookHorizontal",
-		"Hook: useConfigs"
+		"Hook: useConfigs",
+		"Page: BarCodeScan"
 	]
 }
