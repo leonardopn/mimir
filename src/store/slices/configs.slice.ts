@@ -1,11 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import update from "immutability-helper";
 
-export type ConfigsState = Readonly<{ showTopNavbar: boolean; showBottomNavbar: boolean }>;
+export type ConfigsState = Readonly<{
+	showTopNavbar: boolean;
+	showBottomNavbar: boolean;
+	isFullScreen: boolean;
+}>;
 
 const initialState: ConfigsState = {
 	showBottomNavbar: true,
 	showTopNavbar: true,
+	isFullScreen: false,
 };
 
 export const ConfigsSlice = createSlice({
