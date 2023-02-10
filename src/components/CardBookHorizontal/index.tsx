@@ -28,7 +28,7 @@ export function CardBookHorizontal({ data }: CardBookHorizontalProps) {
 			<CardBookTest imageUrl={image} size={"small"} />
 			<Informations>
 				<InformationWrapper>
-					<MainInfo numberOfLines={1}>{title || "Sem Título"}</MainInfo>
+					<MainInfo>{title || "Sem Título"}</MainInfo>
 				</InformationWrapper>
 				<InformationWrapper>
 					<SimpleInfo>{author || "Sem Autor"}</SimpleInfo>
@@ -49,7 +49,7 @@ export function CardBookHorizontal({ data }: CardBookHorizontalProps) {
 				</InformationWrapper>
 				<Spacer spacing={5} />
 				<InformationWrapper>
-					<SimpleInfo numberOfLines={2}>{description || "Sem descrição"}</SimpleInfo>
+					<SimpleInfo>{description || "Sem descrição"}</SimpleInfo>
 				</InformationWrapper>
 			</Informations>
 		</Container>

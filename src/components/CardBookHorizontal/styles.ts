@@ -20,7 +20,7 @@ export const CardBookTest = styled(CardBook).attrs({
 `;
 
 export const Informations = styled.View`
-	padding: 10px;
+	margin: 10px;
 	flex: 1;
 `;
 
@@ -36,14 +36,14 @@ export const InformationWrapper = styled.View<{ justify?: boolean }>`
 		`}
 `;
 
-export const MainInfo = styled.Text`
+export const MainInfo = styled.Text.attrs({ numberOfLines: 1 })`
 	font-family: ${({ theme }) => theme.fonts.bold};
 	font-size: ${RFValue(12)}px;
 	color: ${({ theme }) => theme.colors.TEXT};
 	text-align: justify;
 `;
 
-export const SimpleInfo = styled.Text`
+export const SimpleInfo = styled.Text.attrs({ numberOfLines: 1 })`
 	font-family: ${({ theme }) => theme.fonts.regular};
 	font-size: ${RFValue(11)}px;
 	color: ${({ theme }) => theme.colors.TEXT};
