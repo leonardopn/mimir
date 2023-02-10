@@ -33,6 +33,15 @@ export function SearchBook({ navigation }: SearchBookProps) {
 		}
 	}
 
+	function handleSearchNavigateByScan(data: string) {
+		if (data) {
+			navigation.pop();
+			navigation.navigate("Book-search-result", { search: data });
+		} else {
+			alert("Preencha o campo de busca");
+		}
+	}
+
 	return (
 		<KeyboardAvoidingView>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -64,7 +73,11 @@ export function SearchBook({ navigation }: SearchBookProps) {
 						<NormalText>OU</NormalText>
 						<Spacer spacing={7.5} />
 						<ButtonSelectStep
-							onPress={() => console.log("")}
+							onPress={() =>
+								navigation.navigate("Book-search-barcode", {
+									onScanSuccess: handleSearchNavigateByScan,
+								})
+							}
 							icon={{ iconFamily: "material_community", name: "barcode-scan" }}>
 							Escanear código de barras
 						</ButtonSelectStep>
