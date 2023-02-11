@@ -47,6 +47,7 @@
 		"Component: CardBookHorizontal",
 		"Hook: useConfigs",
 		"Page: BarCodeScan",
-		"Context: BarCodeScanner"
+		"Context: BarCodeScanner",
+		"Component: Subtitle"
 	]
 }
