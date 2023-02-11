@@ -1,17 +1,39 @@
 import { BarCodeScanner, BarCodeScannerResult } from "expo-barcode-scanner";
-import React, { useEffect, useState } from "react";
-import { Text, useWindowDimensions, View } from "react-native";
+import React, { useCallback, useEffect, useState } from "react";
+import { Linking, useWindowDimensions } from "react-native";
+import { HeaderStack } from "../../components/HeaderStack";
 import { useConfigs } from "../../hooks/store/useConfigs";
 import { useBarCodeScanner } from "../../hooks/useBarCodeScanner";
+import {
+	ButtonTryAgain,
+	Container,
+	MessagePermission,
+	Overlay,
+	OverlayContent,
+	SubMessagePermission,
+} from "./styles";
 
 export function BarCodeScan() {
+	const [permissionResponse, requestPermission] = BarCodeScanner.usePermissions();
 	const { setResult } = useBarCodeScanner();
 	const { width, height } = useWindowDimensions();
-	const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 	const [scanned, setScanned] = useState(false);
 	const {
 		functions: { updateConfigs: updateConfigs },
 	} = useConfigs();
+
+	const handleRequestPermission = useCallback(async () => {
+		await requestPermission();
+	}, [requestPermission]);
+
+	const handleOpenConfigs = useCallback(() => {
+		Linking.openSettings();
+	}, []);
+
+	const handleBarCodeScanned = ({ data }: BarCodeScannerResult) => {
+		setScanned(true);
+		setResult(data);
+	};
 
 	useEffect(() => {
 		updateConfigs({ isFullScreen: true });
@@ -22,32 +44,40 @@ export function BarCodeScan() {
 	}, [updateConfigs]);
 
 	useEffect(() => {
-		const getBarCodeScannerPermissions = async () => {
-			const { status } = await BarCodeScanner.requestPermissionsAsync();
-			setHasPermission(status === "granted");
-		};
+		handleRequestPermission();
+	}, [handleRequestPermission]);
 
-		getBarCodeScannerPermissions();
-	}, []);
+	if (permissionResponse?.granted === false) {
+		const { canAskAgain } = permissionResponse;
 
-	const handleBarCodeScanned = ({ data }: BarCodeScannerResult) => {
-		setScanned(true);
-		setResult(data);
-	};
-
-	if (hasPermission === null) {
-		return <Text>Requesting for camera permission</Text>;
-	}
-	if (hasPermission === false) {
-		return <Text>No access to camera</Text>;
+		return (
+			<Overlay>
+				<HeaderStack showGoBack title="Leitor de código de barras" />
+				<OverlayContent>
+					<MessagePermission>{`Acesso a câmera foi negado ${
+						canAskAgain ? "" : "e não podemos altera-lo por aqui."
+					}`}</MessagePermission>
+					<SubMessagePermission>
+						{canAskAgain
+							? "Solicite novamente abaixo."
+							: "Abra o menu de configurações e altere a permissão."}
+					</SubMessagePermission>
+					<ButtonTryAgain
+						variant={canAskAgain ? "SUCCESS" : "BLUE"}
+						title={canAskAgain ? "Solicitar acesso" : "Abrir configuração"}
+						onPress={canAskAgain ? handleRequestPermission : handleOpenConfigs}
+					/>
+				</OverlayContent>
+			</Overlay>
+		);
 	}
 
 	return (
-		<View style={{ position: "absolute", width, height }}>
+		<Container width={width} height={height}>
 			<BarCodeScanner
 				onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
 				style={{ flex: 1, backgroundColor: "black" }}
 			/>
-		</View>
+		</Container>
 	);
 }
