@@ -5,4 +5,11 @@ export const Container = styled.View`
 	padding: 20px;
 `;
 
+export const TextHeader = styled.View`
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0 25px 0;
+	text-align: center;
+`;
+
 export const Content = styled.ScrollView``;

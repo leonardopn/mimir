@@ -4,9 +4,11 @@ import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, Text } from "react-native";
 import { CardBookHorizontal } from "../../../components/CardBookHorizontal";
 import { HeaderStack } from "../../../components/HeaderStack";
+import { Subtitle } from "../../../components/Text/Subtitle";
+import { Title } from "../../../components/Text/Title";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { GetGoogleBooksApi, googleBooksApi } from "../../../services/googleBooksApi";
-import { Container, Content } from "./styles";
+import { Container, Content, TextHeader } from "./styles";
 
 interface SearchBookResultProps
 	extends StackScreenProps<AppStackRoutesParams, "Book-search-result"> {}
@@ -50,8 +52,14 @@ export function SearchBookResult({ route }: SearchBookResultProps) {
 
 	return (
 		<Container>
-			<HeaderStack showGoBack showDivider={false} title="Cadastro de livro" />
+			<HeaderStack showGoBack title="Cadastro de livro" />
 			<Content>
+				<TextHeader>
+					<Title>Livros encontrados</Title>
+					<Subtitle style={{ textAlign: "center" }}>
+						Abaixo estão todos os livros que correspondem a sua busca.
+					</Subtitle>
+				</TextHeader>
 				{apiReturn?.items?.map(item => {
 					const { id, volumeInfo } = item;
 					const industryIdentifiers = volumeInfo.industryIdentifiers;
