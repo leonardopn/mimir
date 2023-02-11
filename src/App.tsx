@@ -13,7 +13,7 @@ import { ThemeProvider } from "styled-components/native";
 import { Header } from "./components/Header";
 import { ControllerProvider } from "./context/Form.context";
 import theme from "./global/styles/theme";
-import { AppRoutes } from "./Routes/app.routes";
+import { AppRoutes } from "./Routes/app.bottomTab.routes";
 import { store, persistor } from "./store/store";
 import "react-native-gesture-handler";
 import { PersistGate } from "redux-persist/integration/react";

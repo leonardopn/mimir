@@ -4,12 +4,12 @@ import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, Text } from "react-native";
 import { CardBookHorizontal } from "../../../components/CardBookHorizontal";
 import { HeaderStack } from "../../../components/HeaderStack";
-import { InsertBookStackParamList } from "../../../Routes/insertBook/stack.routes";
+import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { GetGoogleBooksApi, googleBooksApi } from "../../../services/googleBooksApi";
 import { Container, Content } from "./styles";
 
 interface SearchBookResultProps
-	extends StackScreenProps<InsertBookStackParamList, "Book-search-result"> {}
+	extends StackScreenProps<AppStackRoutesParams, "Book-search-result"> {}
 
 export function SearchBookResult({ route }: SearchBookResultProps) {
 	const [apiReturn, setApiReturn] = useState<GetGoogleBooksApi | null>(null);

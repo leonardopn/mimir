@@ -2,21 +2,25 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Platform } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Entypo from "react-native-vector-icons/Entypo";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useTheme } from "styled-components";
-import { Dashboard } from "../pages/Dashboard";
-import { InsertBook } from "../pages/InsertBook";
-import { DashboardStackRoutes } from "./Dashboard/stack.routes";
 import { useConfigs } from "../hooks/store/useConfigs";
+import { Dashboard } from "../pages/Dashboard";
+import { AppStackRoutes, AppStackRoutesParams } from "./app.stack.routes";
 
-export type RootBottomTabParamList = {
-	Home: undefined;
-	Favoritos: undefined;
-	Adicionar: undefined;
+type DefaultRouteProps = {
+	defaultRoute?: keyof AppStackRoutesParams;
 };
 
-const { Navigator, Screen } = createBottomTabNavigator();
+export type RootBottomTabParamList = {
+	Home: DefaultRouteProps;
+	Livros: DefaultRouteProps;
+	Favoritos: DefaultRouteProps;
+	Adicionar: DefaultRouteProps;
+};
+
+const { Navigator, Screen } = createBottomTabNavigator<RootBottomTabParamList>();
 
 export function AppRoutes() {
 	const theme = useTheme();
@@ -52,7 +56,8 @@ export function AppRoutes() {
 					tabBarShowLabel: false,
 				}}
 				name="Home"
-				component={DashboardStackRoutes}
+				component={AppStackRoutes}
+				initialParams={{ defaultRoute: "Dashboard-root" }}
 			/>
 			<Screen
 				options={{
@@ -87,7 +92,8 @@ export function AppRoutes() {
 					tabBarShowLabel: false,
 				}}
 				name="Adicionar"
-				component={InsertBook}
+				component={AppStackRoutes}
+				initialParams={{ defaultRoute: "insertBook-root" }}
 			/>
 		</Navigator>
 	);

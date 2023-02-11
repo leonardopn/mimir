@@ -7,7 +7,8 @@ import { IconButton } from "../../../components/Forms/IconButton";
 import Input from "../../../components/Forms/Input";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
-import { InsertBookStackParamList } from "../../../Routes/insertBook/stack.routes";
+import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
+
 import {
 	Container,
 	Content,
@@ -18,7 +19,7 @@ import {
 	Title,
 } from "./styles";
 
-interface SearchBookProps extends StackScreenProps<InsertBookStackParamList, "Book-search"> {}
+interface SearchBookProps extends StackScreenProps<AppStackRoutesParams, "Book-search"> {}
 
 export function SearchBook({ navigation }: SearchBookProps) {
 	const theme = useTheme();

@@ -10,11 +10,11 @@ import { Button } from "../../../components/Forms/Button";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
 import { useFormInsertBookContext } from "../../../context/FormInsertBook.context";
-import { InsertBookStackParamList } from "../../../Routes/insertBook/stack.routes";
+import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
+
 import { Container, Content, Input, InputMultiLine, InputWrapper } from "./styles";
 
-interface StepThreeProps
-	extends StackScreenProps<InsertBookStackParamList, "insertBook-stepThree"> {}
+interface StepThreeProps extends StackScreenProps<AppStackRoutesParams, "insertBook-stepThree"> {}
 
 export function StepThree({ navigation }: StepThreeProps) {
 	const {

@@ -3,18 +3,18 @@ import { CardBook } from "../../../components/CardBook";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
 import { Title } from "../../../components/Text/Title";
-import { BookStackParamList } from "../../../Routes/Book/stack.routes";
+import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import {
-	Container,
-	ContentHeader,
-	Content,
 	BookInformations,
+	BookInformationWrapper,
+	Container,
+	Content,
+	ContentHeader,
 	MainInfo,
 	SimpleInfo,
-	BookInformationWrapper,
 } from "./styles";
 
-interface BookViewProps extends StackScreenProps<BookStackParamList, "Book-view"> {}
+interface BookViewProps extends StackScreenProps<AppStackRoutesParams, "Book-view"> {}
 
 export function BookView({ route }: BookViewProps) {
 	const { book } = route.params;

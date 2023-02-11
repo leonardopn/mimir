@@ -4,8 +4,7 @@ import { FlatList } from "react-native";
 import { ButtonSelectStep } from "../../components/ButtonSelectStep";
 import { CardBook } from "../../components/CardBook";
 import { useBooks } from "../../hooks/store/useBooks";
-import { RootBottomTabParamList } from "../../Routes/app.routes";
-import { DashboardStackParamList } from "../../Routes/Dashboard/stack.routes";
+import { AppStackRoutesParams } from "../../Routes/app.stack.routes";
 import {
 	Container,
 	Header,
@@ -17,8 +16,7 @@ import {
 	Title,
 } from "./styles";
 
-interface DashboardProps
-	extends StackScreenProps<DashboardStackParamList & RootBottomTabParamList, "Dashboard-root"> {}
+interface DashboardProps extends StackScreenProps<AppStackRoutesParams, "Dashboard-root"> {}
 
 export function Dashboard({ navigation }: DashboardProps) {
 	const { reverseBooks, hasBooks } = useBooks();
@@ -31,7 +29,7 @@ export function Dashboard({ navigation }: DashboardProps) {
 					<SubTitle>Para começar, adicione um livro clicando no botão abaixo.</SubTitle>
 				</TextWrapper>
 				<ButtonSelectStep
-					onPress={() => navigation.navigate("Adicionar")}
+					onPress={() => navigation.navigate("insertBook-root")}
 					icon={{ iconFamily: "ant_design", name: "plussquareo" }}>
 					Adicionar Livro
 				</ButtonSelectStep>

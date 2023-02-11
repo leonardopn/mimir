@@ -3,10 +3,9 @@ import { BarCodeScanner, BarCodeScannerResult } from "expo-barcode-scanner";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { useConfigs } from "../../hooks/store/useConfigs";
-import { InsertBookStackParamList } from "../../Routes/insertBook/stack.routes";
+import { AppStackRoutesParams } from "../../Routes/app.stack.routes";
 
-interface BarCodeScanProps
-	extends StackScreenProps<InsertBookStackParamList, "Book-search-barcode"> {}
+interface BarCodeScanProps extends StackScreenProps<AppStackRoutesParams, "Book-search-barcode"> {}
 
 export function BarCodeScan({ route }: BarCodeScanProps) {
 	const [hasPermission, setHasPermission] = useState<boolean | null>(null);

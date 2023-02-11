@@ -5,10 +5,10 @@ import { SquareSelectOptionForm } from "../../../components/Forms/SquareSelectOp
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
 import { useFormInsertBookContext } from "../../../context/FormInsertBook.context";
-import { InsertBookStackParamList } from "../../../Routes/insertBook/stack.routes";
+import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { ButtonWrapper, Container, Content, SubTitle, TextWrapper, Title } from "./styles";
 
-interface StepTwoProps extends StackScreenProps<InsertBookStackParamList, "insertBook-stepTwo"> {}
+interface StepTwoProps extends StackScreenProps<AppStackRoutesParams, "insertBook-stepTwo"> {}
 
 export function StepTwo({ navigation }: StepTwoProps) {
 	const {
@@ -30,7 +30,7 @@ export function StepTwo({ navigation }: StepTwoProps) {
 		}
 	}, [isWished]);
 
-	function handleNext(page: keyof InsertBookStackParamList) {
+	function handleNext(page: keyof AppStackRoutesParams) {
 		navigation.navigate(page);
 	}
 
