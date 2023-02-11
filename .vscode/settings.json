@@ -48,6 +48,7 @@
 		"Hook: useConfigs",
 		"Page: BarCodeScan",
 		"Context: BarCodeScanner",
-		"Component: Subtitle"
+		"Component: Subtitle",
+		"Component: Loading"
 	]
 }

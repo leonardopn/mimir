@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, Text } from "react-native";
 import { CardBookHorizontal } from "../../../components/CardBookHorizontal";
 import { HeaderStack } from "../../../components/HeaderStack";
+import { Loading } from "../../../components/Loading";
 import { Subtitle } from "../../../components/Text/Subtitle";
 import { Title } from "../../../components/Text/Title";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
@@ -42,7 +43,8 @@ export function SearchBookResult({ route }: SearchBookResultProps) {
 		searchBook();
 	}, [searchBook]);
 
-	if (isLoading) return <ActivityIndicator />;
+	if (isLoading) return <Loading text="Buscando dados..." />;
+
 	if (error)
 		return (
 			<Container>
