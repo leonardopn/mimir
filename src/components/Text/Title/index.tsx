@@ -1,10 +1,11 @@
 import React from "react";
+import { TextProps } from "react-native";
 import { Container } from "./styles";
 
-interface TitleProps {
+interface TitleProps extends TextProps {
 	children: string;
 }
 
-export function Title({ children }: TitleProps) {
-	return <Container>{children}</Container>;
+export function Title({ children, ...rest }: TitleProps) {
+	return <Container {...rest}>{children}</Container>;
 }
