@@ -15,7 +15,7 @@ export type BookStackRoutesParams = {
 	"Book-view": { book: Book };
 	"Book-search": undefined;
 	"Book-search-result": { search: string };
-	"Book-search-barcode": { onScanSuccess: (data: string) => void };
+	"Book-search-barcode": undefined;
 };
 
 export type DashboardStackRoutesParams = {

@@ -17,6 +17,7 @@ import { AppRoutes } from "./Routes/app.bottomTab.routes";
 import { store, persistor } from "./store/store";
 import "react-native-gesture-handler";
 import { PersistGate } from "redux-persist/integration/react";
+import { BarCodeScannerProvider } from "./context/BarCodeScanner.context";
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
@@ -62,11 +63,13 @@ export default function App() {
 				<ThemeProvider theme={theme}>
 					<ControllerProvider>
 						<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-							<StatusBar backgroundColor={theme.colors.PRIMARY} />
-							<Header />
-							<NavigationContainer>
-								<AppRoutes />
-							</NavigationContainer>
+							<BarCodeScannerProvider>
+								<StatusBar backgroundColor={theme.colors.PRIMARY} />
+								<Header />
+								<NavigationContainer>
+									<AppRoutes />
+								</NavigationContainer>
+							</BarCodeScannerProvider>
 						</View>
 					</ControllerProvider>
 				</ThemeProvider>

@@ -1,20 +1,17 @@
-import { StackScreenProps } from "@react-navigation/stack";
 import { BarCodeScanner, BarCodeScannerResult } from "expo-barcode-scanner";
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, useWindowDimensions, View } from "react-native";
 import { useConfigs } from "../../hooks/store/useConfigs";
-import { AppStackRoutesParams } from "../../Routes/app.stack.routes";
+import { useBarCodeScanner } from "../../hooks/useBarCodeScanner";
 
-interface BarCodeScanProps extends StackScreenProps<AppStackRoutesParams, "Book-search-barcode"> {}
-
-export function BarCodeScan({ route }: BarCodeScanProps) {
+export function BarCodeScan() {
+	const { setResult } = useBarCodeScanner();
+	const { width, height } = useWindowDimensions();
 	const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 	const [scanned, setScanned] = useState(false);
 	const {
 		functions: { updateConfigs: updateConfigs },
 	} = useConfigs();
-
-	const { onScanSuccess } = route.params;
 
 	useEffect(() => {
 		updateConfigs({ isFullScreen: true });
@@ -35,7 +32,7 @@ export function BarCodeScan({ route }: BarCodeScanProps) {
 
 	const handleBarCodeScanned = ({ data }: BarCodeScannerResult) => {
 		setScanned(true);
-		onScanSuccess(data);
+		setResult(data);
 	};
 
 	if (hasPermission === null) {
@@ -46,7 +43,7 @@ export function BarCodeScan({ route }: BarCodeScanProps) {
 	}
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ position: "absolute", width, height }}>
 			<BarCodeScanner
 				onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
 				style={{ flex: 1, backgroundColor: "black" }}

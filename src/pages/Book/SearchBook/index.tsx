@@ -1,5 +1,5 @@
 import { StackScreenProps } from "@react-navigation/stack";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback } from "react-native";
 import { useTheme } from "styled-components/native";
 import { ButtonSelectStep } from "../../../components/ButtonSelectStep";
@@ -7,6 +7,7 @@ import { IconButton } from "../../../components/Forms/IconButton";
 import Input from "../../../components/Forms/Input";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
+import { useBarCodeScanner } from "../../../hooks/useBarCodeScanner";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 
 import {
@@ -23,6 +24,7 @@ interface SearchBookProps extends StackScreenProps<AppStackRoutesParams, "Book-s
 
 export function SearchBook({ navigation }: SearchBookProps) {
 	const theme = useTheme();
+	const { result, clear } = useBarCodeScanner();
 
 	const [search, setSearch] = useState("");
 
@@ -34,14 +36,24 @@ export function SearchBook({ navigation }: SearchBookProps) {
 		}
 	}
 
-	function handleSearchNavigateByScan(data: string) {
-		if (data) {
-			navigation.pop();
-			navigation.navigate("Book-search-result", { search: data });
-		} else {
-			alert("Preencha o campo de busca");
+	const handleSearchNavigateByScan = useCallback(
+		(data: string) => {
+			if (data) {
+				navigation.pop();
+				navigation.navigate("Book-search-result", { search: data });
+			} else {
+				alert("Preencha o campo de busca");
+			}
+		},
+		[navigation]
+	);
+
+	useEffect(() => {
+		if (result) {
+			handleSearchNavigateByScan(result);
+			clear();
 		}
-	}
+	}, [clear, handleSearchNavigateByScan, result]);
 
 	return (
 		<KeyboardAvoidingView>
@@ -74,11 +86,7 @@ export function SearchBook({ navigation }: SearchBookProps) {
 						<NormalText>OU</NormalText>
 						<Spacer spacing={7.5} />
 						<ButtonSelectStep
-							onPress={() =>
-								navigation.navigate("Book-search-barcode", {
-									onScanSuccess: handleSearchNavigateByScan,
-								})
-							}
+							onPress={() => navigation.navigate("Book-search-barcode")}
 							icon={{ iconFamily: "material_community", name: "barcode-scan" }}>
 							Escanear código de barras
 						</ButtonSelectStep>
