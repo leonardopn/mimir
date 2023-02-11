@@ -49,6 +49,7 @@
 		"Page: BarCodeScan",
 		"Context: BarCodeScanner",
 		"Component: Subtitle",
-		"Component: Loading"
+		"Component: Loading",
+		"Page: ErrorPage"
 	]
 }

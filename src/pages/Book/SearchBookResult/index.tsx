@@ -1,7 +1,6 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import { isAxiosError } from "axios";
 import { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, Text } from "react-native";
 import { CardBookHorizontal } from "../../../components/CardBookHorizontal";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Loading } from "../../../components/Loading";
@@ -9,6 +8,7 @@ import { Subtitle } from "../../../components/Text/Subtitle";
 import { Title } from "../../../components/Text/Title";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { GetGoogleBooksApi, googleBooksApi } from "../../../services/googleBooksApi";
+import { ErrorPage } from "../../ErrorPage";
 import { Container, Content, TextHeader } from "./styles";
 
 interface SearchBookResultProps
@@ -23,6 +23,7 @@ export function SearchBookResult({ route }: SearchBookResultProps) {
 
 	const searchBook = useCallback(async () => {
 		try {
+			setIsLoading(true);
 			const { data } = await googleBooksApi.get<GetGoogleBooksApi>("/", {
 				params: { q: search, maxResults: 40 },
 			});
@@ -45,12 +46,7 @@ export function SearchBookResult({ route }: SearchBookResultProps) {
 
 	if (isLoading) return <Loading text="Buscando dados..." />;
 
-	if (error)
-		return (
-			<Container>
-				<Text>Erro ao buscar o livro</Text>
-			</Container>
-		);
+	if (error) return <ErrorPage showHeader title="Cadastro de livro" onTryAgain={searchBook} />;
 
 	return (
 		<Container>
