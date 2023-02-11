@@ -14,7 +14,7 @@ export function Loading({ text = "Carregando...", showText = true }: LoadingProp
 			{showText && (
 				<>
 					<Spacer spacing={5} />
-					<Title>{text}</Title>
+					<Title style={{ textAlign: "center" }}>{text}</Title>
 				</>
 			)}
 		</Container>
