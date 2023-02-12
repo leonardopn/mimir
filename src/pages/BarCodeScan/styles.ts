@@ -31,3 +31,33 @@ export const ButtonTryAgain = styled(Button)`
 	margin-top: 20px;
 	width: 100%;
 `;
+
+export const BarCodeContent = styled.View`
+	width: 100%;
+	height: 100%;
+	position: relative;
+	flex-direction: row;
+
+	align-items: center;
+`;
+
+export const BarCodeInformationWrapper = styled.View`
+	background-color: grey;
+	padding: 10px;
+	border-radius: 10px;
+	flex-direction: row;
+	height: 500px;
+	width: 60px;
+
+	/* bottom: 0px;
+	right: 100px;
+	transform: rotate(90deg);
+	position: absolute; */
+`;
+
+export const ContrastTitle = styled(Title)`
+	color: white;
+	/* transform: rotate(90deg); */
+	width: 50px;
+	height: 500px;
+`;

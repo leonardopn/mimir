@@ -1,12 +1,16 @@
 import { BarCodeScanner, BarCodeScannerResult } from "expo-barcode-scanner";
 import React, { useCallback, useEffect, useState } from "react";
 import { Linking, useWindowDimensions } from "react-native";
+import BarcodeMask from "react-native-barcode-mask";
 import { HeaderStack } from "../../components/HeaderStack";
 import { useConfigs } from "../../hooks/store/useConfigs";
 import { useBarCodeScanner } from "../../hooks/useBarCodeScanner";
 import {
+	BarCodeContent,
+	BarCodeInformationWrapper,
 	ButtonTryAgain,
 	Container,
+	ContrastTitle,
 	MessagePermission,
 	Overlay,
 	OverlayContent,
@@ -76,8 +80,19 @@ export function BarCodeScan() {
 		<Container width={width} height={height}>
 			<BarCodeScanner
 				onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-				style={{ flex: 1, backgroundColor: "black" }}
-			/>
+				style={{
+					flex: 1,
+					backgroundColor: "black",
+					justifyContent: "center",
+					alignItems: "center",
+				}}>
+				<BarcodeMask width={100} height="80%" showAnimatedLine={false} edgeRadius={10} />
+				<BarCodeContent>
+					<BarCodeInformationWrapper>
+						<ContrastTitle>Posicione o código de barras na marcação</ContrastTitle>
+					</BarCodeInformationWrapper>
+				</BarCodeContent>
+			</BarCodeScanner>
 		</Container>
 	);
 }
