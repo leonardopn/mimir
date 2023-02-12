@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
+import React, { useEffect } from "react";
 import { Platform } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -25,8 +25,13 @@ const { Navigator, Screen } = createBottomTabNavigator<RootBottomTabParamList>()
 export function AppRoutes() {
 	const theme = useTheme();
 	const {
+		functions: { updateConfigs },
 		state: { showBottomNavbar, isFullScreen },
 	} = useConfigs();
+
+	useEffect(() => {
+		updateConfigs({ showBottomNavbar: true, isFullScreen: false, showTopNavbar: true });
+	}, [updateConfigs]);
 
 	const showTab = !isFullScreen && showBottomNavbar;
 
