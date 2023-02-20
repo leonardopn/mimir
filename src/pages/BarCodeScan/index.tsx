@@ -1,10 +1,13 @@
+import { useNavigation } from "@react-navigation/native";
 import { BarCodeScanner, BarCodeScannerResult } from "expo-barcode-scanner";
 import React, { useCallback, useEffect, useState } from "react";
 import { Linking, useWindowDimensions } from "react-native";
 import BarcodeMask from "react-native-barcode-mask";
+import { WrapperIconButton } from "../../components/Forms/WrapperIconButton";
 import { HeaderStack } from "../../components/HeaderStack";
 import { useConfigs } from "../../hooks/store/useConfigs";
 import { useBarCodeScanner } from "../../hooks/useBarCodeScanner";
+import { useScreenOrientation } from "../../hooks/useScreenOrientation";
 import {
 	BarCodeContent,
 	BarCodeInformationWrapper,
@@ -17,9 +20,6 @@ import {
 	ReturnButton,
 	SubMessagePermission,
 } from "./styles";
-import * as ScreenOrientation from "expo-screen-orientation";
-import { useNavigation } from "@react-navigation/native";
-import { WrapperIconButton } from "../../components/Forms/WrapperIconButton";
 
 export function BarCodeScan() {
 	const [permissionResponse, requestPermission] = BarCodeScanner.usePermissions();
@@ -30,7 +30,7 @@ export function BarCodeScan() {
 		functions: { updateConfigs: updateConfigs },
 	} = useConfigs();
 	const { goBack } = useNavigation();
-
+	const { changeScreenOrientation } = useScreenOrientation();
 	const handleRequestPermission = useCallback(async () => {
 		await requestPermission();
 	}, [requestPermission]);
@@ -39,24 +39,20 @@ export function BarCodeScan() {
 		Linking.openSettings();
 	}, []);
 
-	async function changeScreenOrientation(orientationLock: ScreenOrientation.OrientationLock) {
-		await ScreenOrientation.lockAsync(orientationLock);
-	}
-
 	const handleBarCodeScanned = ({ data }: BarCodeScannerResult) => {
 		setScanned(true);
 		setResult(data);
 	};
 
 	useEffect(() => {
-		changeScreenOrientation(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
+		changeScreenOrientation("RIGHT");
 		updateConfigs({ isFullScreen: true });
 
 		return () => {
-			changeScreenOrientation(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+			changeScreenOrientation("DEFAULT");
 			updateConfigs({ isFullScreen: false });
 		};
-	}, [updateConfigs]);
+	}, [changeScreenOrientation, updateConfigs]);
 
 	useEffect(() => {
 		handleRequestPermission();
