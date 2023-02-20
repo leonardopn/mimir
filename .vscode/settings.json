@@ -51,6 +51,7 @@
 		"Component: Subtitle",
 		"Component: Loading",
 		"Page: ErrorPage",
-		"Context: ScreenOrientation"
+		"Context: ScreenOrientation",
+		"Hook: useScreenOrientation"
 	]
 }
