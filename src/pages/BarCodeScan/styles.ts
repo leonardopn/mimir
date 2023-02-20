@@ -1,7 +1,9 @@
+import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 import { Button } from "../../components/Forms/Button";
 import { Subtitle } from "../../components/Text/Subtitle";
 import { Title } from "../../components/Text/Title";
+import { VectorIcon } from "../../components/VectorIcon";
 
 export const Container = styled.View<{ width: number; height: number }>`
 	position: absolute;
@@ -15,9 +17,9 @@ export const Overlay = styled.View`
 `;
 
 export const OverlayContent = styled.View`
+	flex: 1;
 	justify-content: center;
 	align-items: center;
-	flex: 1;
 `;
 
 export const MessagePermission = styled(Title)`
@@ -33,31 +35,30 @@ export const ButtonTryAgain = styled(Button)`
 `;
 
 export const BarCodeContent = styled.View`
-	width: 100%;
-	height: 100%;
-	position: relative;
 	flex-direction: row;
-
 	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+	width: 80%;
 `;
 
 export const BarCodeInformationWrapper = styled.View`
-	background-color: grey;
+	flex: 1;
+	flex-direction: row;
+	justify-content: center;
 	padding: 10px;
 	border-radius: 10px;
-	flex-direction: row;
-	height: 500px;
-	width: 60px;
-
-	/* bottom: 0px;
-	right: 100px;
-	transform: rotate(90deg);
-	position: absolute; */
+	margin-left: 30px;
+	background-color: ${({ theme }) => theme.colors.WHITE};
 `;
 
 export const ContrastTitle = styled(Title)`
-	color: white;
-	/* transform: rotate(90deg); */
-	width: 50px;
-	height: 500px;
+	color: ${({ theme }) => theme.colors.TEXT};
+	font-family: ${({ theme }) => theme.fonts.medium};
+`;
+
+export const ReturnButton = styled(VectorIcon)`
+	font-size: ${RFValue(18)}px;
+	color: ${({ theme }) => theme.colors.WHITE};
+	margin-left: ${RFValue(3)}px;
 `;

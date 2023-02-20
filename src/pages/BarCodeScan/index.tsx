@@ -14,8 +14,12 @@ import {
 	MessagePermission,
 	Overlay,
 	OverlayContent,
+	ReturnButton,
 	SubMessagePermission,
 } from "./styles";
+import * as ScreenOrientation from "expo-screen-orientation";
+import { useNavigation } from "@react-navigation/native";
+import { WrapperIconButton } from "../../components/Forms/WrapperIconButton";
 
 export function BarCodeScan() {
 	const [permissionResponse, requestPermission] = BarCodeScanner.usePermissions();
@@ -25,6 +29,7 @@ export function BarCodeScan() {
 	const {
 		functions: { updateConfigs: updateConfigs },
 	} = useConfigs();
+	const { goBack } = useNavigation();
 
 	const handleRequestPermission = useCallback(async () => {
 		await requestPermission();
@@ -34,15 +39,21 @@ export function BarCodeScan() {
 		Linking.openSettings();
 	}, []);
 
+	async function changeScreenOrientation(orientationLock: ScreenOrientation.OrientationLock) {
+		await ScreenOrientation.lockAsync(orientationLock);
+	}
+
 	const handleBarCodeScanned = ({ data }: BarCodeScannerResult) => {
 		setScanned(true);
 		setResult(data);
 	};
 
 	useEffect(() => {
+		changeScreenOrientation(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
 		updateConfigs({ isFullScreen: true });
 
 		return () => {
+			changeScreenOrientation(ScreenOrientation.OrientationLock.PORTRAIT_UP);
 			updateConfigs({ isFullScreen: false });
 		};
 	}, [updateConfigs]);
@@ -82,12 +93,16 @@ export function BarCodeScan() {
 				onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
 				style={{
 					flex: 1,
-					backgroundColor: "black",
-					justifyContent: "center",
 					alignItems: "center",
+					width: "100%",
+					height: "100%",
+					backgroundColor: "black",
 				}}>
-				<BarcodeMask width={100} height="80%" showAnimatedLine={false} edgeRadius={10} />
+				<BarcodeMask width="80%" height={100} animatedLineWidth="100%" />
 				<BarCodeContent>
+					<WrapperIconButton onPress={goBack}>
+						<ReturnButton iconFamily="material" name="arrow-back-ios" />
+					</WrapperIconButton>
 					<BarCodeInformationWrapper>
 						<ContrastTitle>Posicione o código de barras na marcação</ContrastTitle>
 					</BarCodeInformationWrapper>
