@@ -50,6 +50,7 @@
 		"Context: BarCodeScanner",
 		"Component: Subtitle",
 		"Component: Loading",
-		"Page: ErrorPage"
+		"Page: ErrorPage",
+		"Context: ScreenOrientation"
 	]
 }
