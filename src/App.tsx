@@ -18,6 +18,7 @@ import { store, persistor } from "./store/store";
 import "react-native-gesture-handler";
 import { PersistGate } from "redux-persist/integration/react";
 import { BarCodeScannerProvider } from "./context/BarCodeScanner.context";
+import { ScreenOrientationProvider } from "./context/ScreenOrientation.context";
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
@@ -62,15 +63,17 @@ export default function App() {
 			<PersistGate loading={null} persistor={persistor}>
 				<ThemeProvider theme={theme}>
 					<ControllerProvider>
-						<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-							<BarCodeScannerProvider>
-								<StatusBar backgroundColor={theme.colors.PRIMARY} />
-								<Header />
-								<NavigationContainer>
-									<AppRoutes />
-								</NavigationContainer>
-							</BarCodeScannerProvider>
-						</View>
+						<ScreenOrientationProvider>
+							<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+								<BarCodeScannerProvider>
+									<StatusBar backgroundColor={theme.colors.PRIMARY} />
+									<Header />
+									<NavigationContainer>
+										<AppRoutes />
+									</NavigationContainer>
+								</BarCodeScannerProvider>
+							</View>
+						</ScreenOrientationProvider>
 					</ControllerProvider>
 				</ThemeProvider>
 			</PersistGate>

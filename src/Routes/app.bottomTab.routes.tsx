@@ -6,6 +6,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useTheme } from "styled-components";
 import { useConfigs } from "../hooks/store/useConfigs";
+import { useScreenOrientation } from "../hooks/useScreenOrientation";
 import { Dashboard } from "../pages/Dashboard";
 import { AppStackRoutes, AppStackRoutesParams } from "./app.stack.routes";
 
@@ -28,10 +29,12 @@ export function AppRoutes() {
 		functions: { updateConfigs },
 		state: { showBottomNavbar, isFullScreen },
 	} = useConfigs();
+	const { changeScreenOrientation } = useScreenOrientation();
 
 	useEffect(() => {
+		changeScreenOrientation("DEFAULT");
 		updateConfigs({ showBottomNavbar: true, isFullScreen: false, showTopNavbar: true });
-	}, [updateConfigs]);
+	}, [changeScreenOrientation, updateConfigs]);
 
 	const showTab = !isFullScreen && showBottomNavbar;
 
