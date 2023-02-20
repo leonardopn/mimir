@@ -1,19 +1,26 @@
 {
-  "expo": {
-    "name": "mimir",
-    "slug": "mimir",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "plugins": [
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "Você permite Mímir acessar suas fotos?",
-          "cameraPermission": "Você permite Mímir tirar uma foto?"
-        }
-      ]
-    ]
-  }
+	"expo": {
+		"name": "mimir",
+		"slug": "mimir",
+		"version": "1.0.0",
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"requireFullScreen": true
+		},
+		"plugins": [
+			[
+				"expo-image-picker",
+				{
+					"photosPermission": "Você permite Mímir acessar suas fotos?",
+					"cameraPermission": "Você permite Mímir tirar uma foto?"
+				}
+			],
+			[
+				"expo-screen-orientation",
+				{
+					"initialOrientation": "DEFAULT"
+				}
+			]
+		]
+	}
 }
