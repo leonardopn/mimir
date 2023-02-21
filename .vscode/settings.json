@@ -52,6 +52,7 @@
 		"Component: Loading",
 		"Page: ErrorPage",
 		"Context: ScreenOrientation",
-		"Hook: useScreenOrientation"
+		"Hook: useScreenOrientation",
+		"Utils: book"
 	]
 }
