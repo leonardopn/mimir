@@ -53,6 +53,7 @@
 		"Page: ErrorPage",
 		"Context: ScreenOrientation",
 		"Hook: useScreenOrientation",
-		"Utils: book"
+		"Utils: book",
+		"Component: BookInformation"
 	]
 }
