@@ -27,7 +27,9 @@ export function SearchBookResult({ route, navigation }: SearchBookResultProps) {
 	const { search } = route.params;
 
 	function selectBook(data: IGoogleBooksApi) {
-		navigation.navigate("Book-view", { book: transformIGoogleBooksApiToBook(data) });
+		navigation.navigate("Book-search-information", {
+			book: transformIGoogleBooksApiToBook(data),
+		});
 	}
 	const searchBook = useCallback(async () => {
 		try {
