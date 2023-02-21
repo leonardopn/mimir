@@ -1,6 +1,8 @@
 import { StackScreenProps } from "@react-navigation/stack";
+import { useEffect } from "react";
 import { BookInformation } from "../../../components/BookInformation";
 import { HeaderStack } from "../../../components/HeaderStack";
+import { useConfigs } from "../../../hooks/store/useConfigs";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { Container, Content, SelectButton } from "./styles";
 
@@ -9,6 +11,14 @@ interface SearchBookInformationProps
 
 export function SearchBookInformation({ route }: SearchBookInformationProps) {
 	const { book } = route.params;
+	const {
+		functions: { updateConfigs },
+	} = useConfigs();
+
+	useEffect(() => {
+		updateConfigs({ showTopNavbar: false });
+		return () => updateConfigs({ showTopNavbar: true });
+	}, [updateConfigs]);
 
 	return (
 		<Container>
