@@ -7,20 +7,28 @@ import { Loading } from "../../../components/Loading";
 import { Subtitle } from "../../../components/Text/Subtitle";
 import { Title } from "../../../components/Text/Title";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
-import { GetGoogleBooksApi, googleBooksApi } from "../../../services/googleBooksApi";
+import {
+	GetGoogleBooksApi,
+	googleBooksApi,
+	IGoogleBooksApi,
+} from "../../../services/googleBooksApi";
+import { transformIGoogleBooksApiToBook } from "../../../utils/book";
 import { ErrorPage } from "../../ErrorPage";
 import { Container, Content, TextHeader } from "./styles";
 
 interface SearchBookResultProps
 	extends StackScreenProps<AppStackRoutesParams, "Book-search-result"> {}
 
-export function SearchBookResult({ route }: SearchBookResultProps) {
+export function SearchBookResult({ route, navigation }: SearchBookResultProps) {
 	const [apiReturn, setApiReturn] = useState<GetGoogleBooksApi | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(false);
 
 	const { search } = route.params;
 
+	function selectBook(data: IGoogleBooksApi) {
+		navigation.navigate("Book-view", { book: transformIGoogleBooksApiToBook(data) });
+	}
 	const searchBook = useCallback(async () => {
 		try {
 			setIsLoading(true);
@@ -70,6 +78,7 @@ export function SearchBookResult({ route }: SearchBookResultProps) {
 					const authors = volumeInfo?.authors || [];
 
 					const data = {
+						id,
 						title: volumeInfo?.title,
 						author: authors[0],
 						publisher: volumeInfo?.publisher,
@@ -79,7 +88,13 @@ export function SearchBookResult({ route }: SearchBookResultProps) {
 						image: volumeInfo?.imageLinks?.thumbnail,
 					};
 
-					return <CardBookHorizontal key={id} data={data} />;
+					return (
+						<CardBookHorizontal
+							data={data}
+							key={item.id}
+							onPress={() => selectBook(item)}
+						/>
+					);
 				})}
 			</Content>
 		</Container>
