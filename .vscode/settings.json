@@ -54,6 +54,7 @@
 		"Context: ScreenOrientation",
 		"Hook: useScreenOrientation",
 		"Utils: book",
-		"Component: BookInformation"
+		"Component: BookInformation",
+		"Page: SearchBookInformation"
 	]
 }

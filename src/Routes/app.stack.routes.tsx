@@ -4,6 +4,7 @@ import React from "react";
 import { BarCodeScan } from "../pages/BarCodeScan";
 import { BookView } from "../pages/Book/BookView";
 import { SearchBook } from "../pages/Book/SearchBook";
+import { SearchBookInformation } from "../pages/Book/SearchBookInformation";
 import { SearchBookResult } from "../pages/Book/SearchBookResult";
 import { Dashboard } from "../pages/Dashboard";
 import { InsertBook } from "../pages/InsertBook";
@@ -16,6 +17,7 @@ export type BookStackRoutesParams = {
 	"Book-search": undefined;
 	"Book-search-result": { search: string };
 	"Book-search-barcode": undefined;
+	"Book-search-information": { book: Book };
 };
 
 export type DashboardStackRoutesParams = {
@@ -43,6 +45,7 @@ export function AppStackRoutes({ route }: AppStackRoutesProps) {
 				<Stack.Screen name="Book-search" component={SearchBook} />
 				<Stack.Screen name="Book-search-barcode" component={BarCodeScan} />
 				<Stack.Screen name="Book-search-result" component={SearchBookResult} />
+				<Stack.Screen name="Book-search-information" component={SearchBookInformation} />
 			</Stack.Group>
 			<Stack.Screen name="insertBook-root" component={InsertBook} />
 		</Stack.Navigator>
