@@ -3,19 +3,20 @@ import { Button } from "../../../components/Forms/Button";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
 import { useFormInsertBookContext } from "../../../context/FormInsertBook.context";
-import { Book } from "../../../types/Books";
-import { ImageArea } from "./ImageArea";
-import { InsertBookContainerDefault } from "../styles";
-import { Content, SubTitle, Title, TextWrapper } from "./styles";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
-import { addBook } from "../../../store/slices/books.slice";
-import { uuidv4 } from "../../../utils/uuid";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
+import { addBook } from "../../../store/slices/books.slice";
+import { Book } from "../../../types/Books";
+import { uuidv4 } from "../../../utils/uuid";
+import { InsertBookContainerDefault } from "../styles";
+import { ImageArea } from "./ImageArea";
+import { Content, SubTitle, TextWrapper, Title } from "./styles";
 
 interface StepFourProps extends StackScreenProps<AppStackRoutesParams, "insertBook-stepFour"> {}
 
 export function StepFour({ navigation }: StepFourProps) {
 	const {
+		defaultValues,
 		form: { handleSubmit, reset },
 	} = useFormInsertBookContext();
 
@@ -27,8 +28,8 @@ export function StepFour({ navigation }: StepFourProps) {
 			...data,
 		};
 		dispatch(addBook(bookToAdd));
+		reset(defaultValues, { keepValues: false });
 		navigation.navigate("insertBook-stepOne");
-		reset();
 	});
 
 	return (
