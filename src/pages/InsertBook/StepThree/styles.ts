@@ -4,6 +4,7 @@ import { InputForm } from "../../../components/Forms/InputForm";
 import { InputMultiLineForm } from "../../../components/Forms/InputMultiLineForm";
 
 export const Container = styled.View`
+	padding: ${RFValue(20)}px;
 	height: 100%;
 `;
 

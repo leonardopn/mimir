@@ -6,7 +6,8 @@ import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
 import { useFormInsertBookContext } from "../../../context/FormInsertBook.context";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
-import { ButtonWrapper, Container, Content, SubTitle, TextWrapper, Title } from "./styles";
+import { InsertBookContainerDefault } from "../styles";
+import { ButtonWrapper, Content, SubTitle, TextWrapper, Title } from "./styles";
 
 interface StepTwoProps extends StackScreenProps<AppStackRoutesParams, "insertBook-stepTwo"> {}
 
@@ -35,7 +36,7 @@ export function StepTwo({ navigation }: StepTwoProps) {
 	}
 
 	return (
-		<Container>
+		<InsertBookContainerDefault>
 			<HeaderStack title="Cadastro de livro" showGoBack />
 			<Content>
 				<TextWrapper>
@@ -62,6 +63,6 @@ export function StepTwo({ navigation }: StepTwoProps) {
 				<Spacer spacing={15} />
 				<Button title="Continuar" onPress={() => handleNext("insertBook-stepThree")} />
 			</Content>
-		</Container>
+		</InsertBookContainerDefault>
 	);
 }

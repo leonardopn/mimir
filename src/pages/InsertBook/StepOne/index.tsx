@@ -5,8 +5,8 @@ import { ButtonSelectStep } from "../../../components/ButtonSelectStep";
 import { HeaderStack } from "../../../components/HeaderStack";
 import { Spacer } from "../../../components/Spacer";
 import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
-
-import { ButtonWrapper, Container, Content, SubTitle, TextWrapper, Title } from "./styles";
+import { InsertBookContainerDefault } from "../styles";
+import { ButtonWrapper, Content, SubTitle, TextWrapper, Title } from "./styles";
 
 interface StepOneProps extends StackScreenProps<AppStackRoutesParams, "insertBook-stepOne"> {}
 
@@ -18,7 +18,7 @@ export function StepOne({ navigation }: StepOneProps) {
 	}
 
 	return (
-		<Container>
+		<InsertBookContainerDefault>
 			<HeaderStack title="Cadastro de livro" />
 			<Content>
 				<TextWrapper>
@@ -48,6 +48,6 @@ export function StepOne({ navigation }: StepOneProps) {
 					</ButtonSelectStep>
 				</ButtonWrapper>
 			</Content>
-		</Container>
+		</InsertBookContainerDefault>
 	);
 }

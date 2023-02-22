@@ -1,8 +1,8 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
 
-export const Container = styled.View<{ isFullScreen: boolean }>`
-	padding: ${RFValue(20)}px ${RFValue(25)}px;
+export const InsertBookContainerDefault = styled.View<{ isFullScreen: boolean }>`
+	padding: ${RFValue(20)}px;
 	flex: 1;
 
 	${({ isFullScreen }) =>
