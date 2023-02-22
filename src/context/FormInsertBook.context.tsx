@@ -12,6 +12,7 @@ interface FormInsertBookProviderProps {
 
 interface FormInsertBookContextProps {
 	form: UseFormReturn<InsertBookForm, any>;
+	defaultValues: Partial<InsertBookForm>;
 }
 
 const schema = yup
@@ -25,22 +26,26 @@ const schema = yup
 const FormInsertBookContext = createContext({} as FormInsertBookContextProps);
 
 export function FormInsertBookProvider({ children }: FormInsertBookProviderProps) {
+	const defaultValues: FormInsertBookContextProps["defaultValues"] = {
+		isFavorited: false,
+		isWished: false,
+		author: "",
+		title: "",
+		description: "",
+		image: "",
+		publisher: "",
+	};
+
 	//TODO: Implementar validador do yup
 	const form = useForm<InsertBookForm>({
 		resolver: yupResolver(schema),
-		defaultValues: {
-			isFavorited: false,
-			isWished: false,
-			author: "",
-			title: "",
-			description: "",
-			image: "",
-			publisher: "",
-		},
+		defaultValues,
 	});
 
 	return (
-		<FormInsertBookContext.Provider value={{ form }}>{children}</FormInsertBookContext.Provider>
+		<FormInsertBookContext.Provider value={{ form, defaultValues }}>
+			{children}
+		</FormInsertBookContext.Provider>
 	);
 }
 
