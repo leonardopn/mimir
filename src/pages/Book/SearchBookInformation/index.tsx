@@ -21,7 +21,7 @@ export function SearchBookInformation({ route, navigation }: SearchBookInformati
 	}, [updateConfigs]);
 
 	function handleSelectBook() {
-		navigation.navigate("insertBook-stepTwo");
+		navigation.navigate("insertBook-stepTwo", { book });
 	}
 
 	return (

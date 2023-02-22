@@ -17,7 +17,7 @@ import { RootBottomTabParamList } from "./app.bottomTab.routes";
 export type InsertBookRoutesParams = {
 	"insertBook-root": undefined;
 	"insertBook-stepOne": undefined;
-	"insertBook-stepTwo": undefined;
+	"insertBook-stepTwo"?: { book: Book };
 	"insertBook-stepThree": undefined;
 	"insertBook-stepFour": undefined;
 };

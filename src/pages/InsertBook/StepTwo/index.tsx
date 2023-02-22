@@ -11,13 +11,22 @@ import { ButtonWrapper, Content, SubTitle, TextWrapper, Title } from "./styles";
 
 interface StepTwoProps extends StackScreenProps<AppStackRoutesParams, "insertBook-stepTwo"> {}
 
-export function StepTwo({ navigation }: StepTwoProps) {
+export function StepTwo({ navigation, route }: StepTwoProps) {
 	const {
-		form: { control, watch, setValue },
+		form: { control, watch, setValue, reset, getValues },
 	} = useFormInsertBookContext();
+
+	const book = route.params?.book;
 
 	const isFavorited = watch("isFavorited");
 	const isWished = watch("isWished");
+
+	useEffect(() => {
+		if (book) {
+			const oldValues = getValues();
+			reset({ ...oldValues, ...book });
+		}
+	}, [book, getValues, reset]);
 
 	useEffect(() => {
 		if (isFavorited) {
