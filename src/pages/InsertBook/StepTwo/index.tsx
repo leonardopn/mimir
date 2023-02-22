@@ -23,13 +23,13 @@ export function StepTwo({ navigation }: StepTwoProps) {
 		if (isFavorited) {
 			setValue("isWished", false);
 		}
-	}, [isFavorited]);
+	}, [isFavorited, setValue]);
 
 	useEffect(() => {
 		if (isWished) {
 			setValue("isFavorited", false);
 		}
-	}, [isWished]);
+	}, [isWished, setValue]);
 
 	function handleNext(page: keyof AppStackRoutesParams) {
 		navigation.navigate(page);

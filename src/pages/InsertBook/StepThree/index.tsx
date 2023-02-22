@@ -28,13 +28,13 @@ export function StepThree({ navigation }: StepThreeProps) {
 		if (isFavorited) {
 			setValue("isWished", false);
 		}
-	}, [isFavorited]);
+	}, [isFavorited, setValue]);
 
 	useEffect(() => {
 		if (isWished) {
 			setValue("isFavorited", false);
 		}
-	}, [isWished]);
+	}, [isWished, setValue]);
 
 	async function handleNext() {
 		const isValid = await trigger(undefined, { shouldFocus: true });
