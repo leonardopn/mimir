@@ -8,7 +8,8 @@
 		"ios": "expo run:ios",
 		"web": "expo start --web",
 		"lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./src",
-		"prettier": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
+		"prettier": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
+		"check-updates": "ncu"
 	},
 	"dependencies": {
 		"@expo-google-fonts/montserrat": "^0.2.2",
@@ -66,6 +67,7 @@
 		"eslint-plugin-react": "^7.29.4",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"expo-cli": "^6.3.0",
+		"npm-check-updates": "^16.7.9",
 		"prettier": "^2.6.2",
 		"react-native-svg-transformer": "^1.0.0",
 		"ts-essentials": "^9.3.0",
