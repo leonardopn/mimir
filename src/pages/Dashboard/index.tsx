@@ -29,7 +29,7 @@ export function Dashboard({ navigation }: DashboardProps) {
 					<SubTitle>Para começar, adicione um livro clicando no botão abaixo.</SubTitle>
 				</TextWrapper>
 				<ButtonSelectStep
-					onPress={() => navigation.navigate("insertBook-root")}
+					onPress={() => navigation.navigate("insertBook-stepOne")}
 					icon={{ iconFamily: "ant_design", name: "plussquareo" }}>
 					Adicionar Livro
 				</ButtonSelectStep>

@@ -9,7 +9,7 @@ import { Container, Content, SelectButton } from "./styles";
 interface SearchBookInformationProps
 	extends StackScreenProps<AppStackRoutesParams, "Book-search-information"> {}
 
-export function SearchBookInformation({ route }: SearchBookInformationProps) {
+export function SearchBookInformation({ route, navigation }: SearchBookInformationProps) {
 	const { book } = route.params;
 	const {
 		functions: { updateConfigs },
@@ -20,13 +20,17 @@ export function SearchBookInformation({ route }: SearchBookInformationProps) {
 		return () => updateConfigs({ showTopNavbar: true });
 	}, [updateConfigs]);
 
+	function handleSelectBook() {
+		navigation.navigate("insertBook-stepTwo");
+	}
+
 	return (
 		<Container>
 			<HeaderStack showGoBack showDivider={false} />
 			<Content>
 				<BookInformation book={book} />
 			</Content>
-			<SelectButton title="Selecionar Livro" />
+			<SelectButton title="Selecionar Livro" onPress={handleSelectBook} />
 		</Container>
 	);
 }

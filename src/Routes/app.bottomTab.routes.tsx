@@ -101,7 +101,7 @@ export function AppRoutes() {
 				}}
 				name="Adicionar"
 				component={AppStackRoutes}
-				initialParams={{ defaultRoute: "insertBook-root" }}
+				initialParams={{ defaultRoute: "insertBook-stepOne" }}
 			/>
 		</Navigator>
 	);

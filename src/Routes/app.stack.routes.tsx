@@ -7,10 +7,20 @@ import { SearchBook } from "../pages/Book/SearchBook";
 import { SearchBookInformation } from "../pages/Book/SearchBookInformation";
 import { SearchBookResult } from "../pages/Book/SearchBookResult";
 import { Dashboard } from "../pages/Dashboard";
-import { InsertBook } from "../pages/InsertBook";
+import { StepFour } from "../pages/InsertBook/StepFour";
+import { StepOne } from "../pages/InsertBook/StepOne";
+import { StepThree } from "../pages/InsertBook/StepThree";
+import { StepTwo } from "../pages/InsertBook/StepTwo";
 import { Book } from "../types/Books";
 import { RootBottomTabParamList } from "./app.bottomTab.routes";
-import { InsertBookRoutesParams } from "./InsertBook/index.stack.routes";
+
+export type InsertBookRoutesParams = {
+	"insertBook-root": undefined;
+	"insertBook-stepOne": undefined;
+	"insertBook-stepTwo": undefined;
+	"insertBook-stepThree": undefined;
+	"insertBook-stepFour": undefined;
+};
 
 export type BookStackRoutesParams = {
 	"Book-view": { book: Book };
@@ -47,7 +57,12 @@ export function AppStackRoutes({ route }: AppStackRoutesProps) {
 				<Stack.Screen name="Book-search-result" component={SearchBookResult} />
 				<Stack.Screen name="Book-search-information" component={SearchBookInformation} />
 			</Stack.Group>
-			<Stack.Screen name="insertBook-root" component={InsertBook} />
+			<Stack.Group>
+				<Stack.Screen name="insertBook-stepOne" component={StepOne} />
+				<Stack.Screen name="insertBook-stepTwo" component={StepTwo} />
+				<Stack.Screen name="insertBook-stepThree" component={StepThree} />
+				<Stack.Screen name="insertBook-stepFour" component={StepFour} />
+			</Stack.Group>
 		</Stack.Navigator>
 	);
 }

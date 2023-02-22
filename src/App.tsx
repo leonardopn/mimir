@@ -19,6 +19,7 @@ import "react-native-gesture-handler";
 import { PersistGate } from "redux-persist/integration/react";
 import { BarCodeScannerProvider } from "./context/BarCodeScanner.context";
 import { ScreenOrientationProvider } from "./context/ScreenOrientation.context";
+import { FormInsertBookProvider } from "./context/FormInsertBook.context";
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
@@ -69,7 +70,9 @@ export default function App() {
 									<StatusBar backgroundColor={theme.colors.PRIMARY} />
 									<Header />
 									<NavigationContainer>
-										<AppRoutes />
+										<FormInsertBookProvider>
+											<AppRoutes />
+										</FormInsertBookProvider>
 									</NavigationContainer>
 								</BarCodeScannerProvider>
 							</View>
