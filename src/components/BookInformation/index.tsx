@@ -36,6 +36,17 @@ export function BookInformation({ book }: BookInformationProps) {
 				<Spacer spacing={5} />
 				<BookInformationWrapper>
 					<MainInfo>
+						ISBN-10: <SimpleInfo>{book.isbn10 || "Sem ISBN-10"}</SimpleInfo>
+					</MainInfo>
+				</BookInformationWrapper>
+				<BookInformationWrapper>
+					<MainInfo>
+						ISBN-13: <SimpleInfo>{book.isbn13 || "Sem ISBN-13"}</SimpleInfo>
+					</MainInfo>
+				</BookInformationWrapper>
+				<Spacer spacing={5} />
+				<BookInformationWrapper>
+					<MainInfo>
 						Descrição:{" "}
 						<SimpleInfo>
 							{book.description ? book.description : "Sem descrição"}
