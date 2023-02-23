@@ -3,8 +3,10 @@ export interface Book {
 	title: string;
 	author: string;
 	publisher: string;
-	description?: string;
-	image?: string;
 	isFavorited: boolean;
 	isWished: boolean;
+	description?: string;
+	isbn10?: string;
+	isbn13?: string;
+	image?: string;
 }
