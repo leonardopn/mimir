@@ -4,6 +4,12 @@ import { Book } from "../types/Books";
 
 export function transformIGoogleBooksApiToBook(book: IGoogleBooksApi): Book {
 	const { volumeInfo } = book;
+
+	const industryIdentifiers = volumeInfo.industryIdentifiers;
+	const isbn10 =
+		industryIdentifiers?.find(identifier => identifier.type === "ISBN_10")?.identifier || "";
+	const isbn13 =
+		industryIdentifiers?.find(identifier => identifier.type === "ISBN_13")?.identifier || "";
 	const authors = volumeInfo?.authors || ["Sem autor"];
 
 	return {
@@ -15,5 +21,7 @@ export function transformIGoogleBooksApiToBook(book: IGoogleBooksApi): Book {
 		image: volumeInfo?.imageLinks?.thumbnail,
 		isFavorited: false,
 		isWished: false,
+		isbn10,
+		isbn13,
 	};
 }

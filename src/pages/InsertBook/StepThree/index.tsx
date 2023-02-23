@@ -77,6 +77,20 @@ export function StepThree({ navigation }: StepThreeProps) {
 								placeholder="Rocco"
 							/>
 							<Spacer spacing={5} />
+							<Input
+								control={control}
+								name="isbn10"
+								label="ISBN-10"
+								placeholder="8532530788"
+							/>
+							<Spacer spacing={5} />
+							<Input
+								control={control}
+								name="isbn13"
+								label="ISBN-13"
+								placeholder="978-8532530783"
+							/>
+							<Spacer spacing={5} />
 							<InputMultiLine
 								control={control}
 								name="description"

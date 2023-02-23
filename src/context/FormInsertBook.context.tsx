@@ -34,6 +34,8 @@ export function FormInsertBookProvider({ children }: FormInsertBookProviderProps
 		description: "",
 		image: "",
 		publisher: "",
+		isbn10: "",
+		isbn13: "",
 	};
 
 	//TODO: Implementar validador do yup
