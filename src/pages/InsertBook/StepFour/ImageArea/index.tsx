@@ -52,7 +52,7 @@ export function ImageArea() {
 	}
 
 	function handleCancel() {
-		resetField("image");
+		resetField("image", { defaultValue: "" });
 	}
 
 	return (
