@@ -6,6 +6,7 @@ import { BookView } from "../pages/Book/BookView";
 import { SearchBook } from "../pages/Book/SearchBook";
 import { SearchBookInformation } from "../pages/Book/SearchBookInformation";
 import { SearchBookResult } from "../pages/Book/SearchBookResult";
+import { BookLibrary } from "../pages/BookLibrary";
 import { Dashboard } from "../pages/Dashboard";
 import { StepFour } from "../pages/InsertBook/StepFour";
 import { StepOne } from "../pages/InsertBook/StepOne";
@@ -33,10 +34,14 @@ export type BookStackRoutesParams = {
 export type DashboardStackRoutesParams = {
 	"Dashboard-root": undefined;
 };
+export type BookLibraryStackRoutesParams = {
+	"BookLibrary-root": undefined;
+};
 
 export type AppStackRoutesParams = DashboardStackRoutesParams &
 	BookStackRoutesParams &
-	InsertBookRoutesParams;
+	InsertBookRoutesParams &
+	BookLibraryStackRoutesParams;
 
 const Stack = createStackNavigator<AppStackRoutesParams>();
 
@@ -49,6 +54,9 @@ export function AppStackRoutes({ route }: AppStackRoutesProps) {
 		<Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={defaultRoute}>
 			<Stack.Group>
 				<Stack.Screen name="Dashboard-root" component={Dashboard} />
+			</Stack.Group>
+			<Stack.Group>
+				<Stack.Screen name="BookLibrary-root" component={BookLibrary} />
 			</Stack.Group>
 			<Stack.Group>
 				<Stack.Screen name="Book-view" component={BookView} />

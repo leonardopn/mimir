@@ -90,7 +90,8 @@ export function AppRoutes() {
 					tabBarShowLabel: false,
 				}}
 				name="Livros"
-				component={Dashboard}
+				component={AppStackRoutes}
+				initialParams={{ defaultRoute: "BookLibrary-root" }}
 			/>
 			<Screen
 				options={{
