@@ -1,40 +1,18 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import { FlatList } from "react-native";
-import { ButtonSelectStep } from "../../components/ButtonSelectStep";
 import { CardBook } from "../../components/CardBook";
+import { EmptyLibrary } from "../../components/EmptyLibrary";
 import { useBooks } from "../../hooks/store/useBooks";
 import { AppStackRoutesParams } from "../../Routes/app.stack.routes";
-import {
-	Container,
-	Header,
-	InitialMessageWrapper,
-	RecentlyAdded,
-	RecentlyAddedHeader,
-	SubTitle,
-	TextWrapper,
-	Title,
-} from "./styles";
+import { Container, Header, RecentlyAdded, RecentlyAddedHeader, Title } from "./styles";
 
 interface DashboardProps extends StackScreenProps<AppStackRoutesParams, "Dashboard-root"> {}
 
 export function Dashboard({ navigation }: DashboardProps) {
 	const { reverseBooks, hasBooks } = useBooks();
 
-	if (!hasBooks)
-		return (
-			<InitialMessageWrapper>
-				<TextWrapper>
-					<Title>Nossa, que vazio...</Title>
-					<SubTitle>Para começar, adicione um livro clicando no botão abaixo.</SubTitle>
-				</TextWrapper>
-				<ButtonSelectStep
-					onPress={() => navigation.navigate("insertBook-stepOne")}
-					icon={{ iconFamily: "ant_design", name: "plussquareo" }}>
-					Adicionar Livro
-				</ButtonSelectStep>
-			</InitialMessageWrapper>
-		);
+	if (!hasBooks) return <EmptyLibrary />;
 
 	return (
 		<Container>
