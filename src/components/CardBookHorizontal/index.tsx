@@ -1,7 +1,7 @@
 import { TouchableWithoutFeedback } from "react-native";
 import { Spacer } from "../Spacer";
 import {
-	CardBookTest,
+	BookThumb,
 	Container,
 	Informations,
 	InformationWrapper,
@@ -28,7 +28,13 @@ export function CardBookHorizontal({ data, onPress }: CardBookHorizontalProps) {
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<Container>
-				<CardBookTest imageUrl={image} size={"small"} onPress={onPress} />
+				<BookThumb
+					imageUrl={image}
+					size={"small"}
+					onPress={onPress}
+					title={title}
+					author={author}
+				/>
 				<Informations>
 					<InformationWrapper>
 						<MainInfo>{title || "Sem Título"}</MainInfo>

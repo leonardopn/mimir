@@ -11,10 +11,9 @@ export const Container = styled.View.attrs(({ theme }) => ({ ...theme.shadow.def
 	overflow: hidden;
 `;
 
-export const CardBookTest = styled(CardBook).attrs({
+export const BookThumb = styled(CardBook).attrs({
 	imageStyle: { borderTopRightRadius: 0, borderBottomRightRadius: 0 },
 })`
-	margin: 0;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 `;
