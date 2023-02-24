@@ -58,6 +58,7 @@
 		"Page: SearchBookInformation",
 		"Page: BookLibrary",
 		"Component: EmptyLibrary",
-		"Component: DefaultBookCover"
+		"Component: DefaultBookCover",
+		"Utils: math"
 	]
 }
