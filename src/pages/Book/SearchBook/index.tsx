@@ -40,7 +40,7 @@ export function SearchBook({ navigation }: SearchBookProps) {
 		(data: string) => {
 			if (data) {
 				navigation.pop();
-				navigation.navigate("Book-search-result", { search: data });
+				navigation.navigate("Book-search-result", { search: `+isbn:${data}` });
 			} else {
 				alert("Preencha o campo de busca");
 			}
