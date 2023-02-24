@@ -1,7 +1,7 @@
-import { Book } from "../../types/Books";
-import { CardBook } from "../CardBook";
+import { Book as IBook } from "../../types/Books";
 import { Spacer } from "../Spacer";
 import {
+	BookThumb,
 	BookInformations,
 	BookInformationWrapper,
 	BookTitle,
@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 interface BookInformationProps {
-	book: Book;
+	book: IBook;
 }
 
 export function BookInformation({ book }: BookInformationProps) {
@@ -20,7 +20,7 @@ export function BookInformation({ book }: BookInformationProps) {
 		<Container>
 			<ContentHeader>
 				<BookTitle>{book.title}</BookTitle>
-				<CardBook imageUrl={book.image} />
+				<BookThumb imageUrl={book.image} />
 			</ContentHeader>
 			<BookInformations>
 				<BookInformationWrapper>

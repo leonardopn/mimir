@@ -1,5 +1,6 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
+import { CardBook } from "../CardBook";
 import { Title } from "../Text/Title";
 
 export const Container = styled.View``;
@@ -31,6 +32,10 @@ export const BookInformationWrapper = styled.View<{ justify?: boolean }>`
 
 export const BookTitle = styled(Title)`
 	text-align: center;
+`;
+
+export const BookThumb = styled(CardBook)`
+	margin: ${RFValue(10)}px;
 `;
 
 export const MainInfo = styled.Text`
