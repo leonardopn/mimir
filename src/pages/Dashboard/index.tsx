@@ -3,6 +3,7 @@ import React from "react";
 import { FlatList } from "react-native";
 import { CardBook } from "../../components/CardBook";
 import { EmptyLibrary } from "../../components/EmptyLibrary";
+import { Spacer } from "../../components/Spacer";
 import { useBooks } from "../../hooks/store/useBooks";
 import { AppStackRoutesParams } from "../../Routes/app.stack.routes";
 import { Container, Header, RecentlyAdded, RecentlyAddedHeader, Title } from "./styles";
@@ -35,6 +36,8 @@ export function Dashboard({ navigation }: DashboardProps) {
 							keyExtractor={item => String(item.id)}
 							horizontal
 							showsHorizontalScrollIndicator={false}
+							ItemSeparatorComponent={() => <Spacer spacing={8} />}
+							contentContainerStyle={{ paddingBottom: 10 }}
 						/>
 					</RecentlyAdded>
 				)}
