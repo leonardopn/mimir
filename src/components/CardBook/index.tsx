@@ -2,7 +2,8 @@ import { useAssets } from "expo-asset";
 import React from "react";
 import { ImageStyle, StyleProp, TouchableWithoutFeedback, ViewStyle } from "react-native";
 import BookCoverDefault from "../../assets/default_book_cover.png";
-import { Author, Container, Image, Informations, Title } from "./styles";
+import { DefaultBookCover } from "../DefaultBookCover";
+import { Container, Image } from "./styles";
 
 interface CardBookProps {
 	title?: string;
@@ -30,17 +31,20 @@ export function CardBook({
 
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
-			<Container size={size} style={style}>
-				<Image
-					style={imageStyle}
-					source={imageUrl ? { uri: imageUrl } : { uri: asset[0].uri }}
-					radiusAll={!showInformations}
-				/>
-				{showInformations && (
-					<Informations>
-						<Title>{title}</Title>
-						<Author>{author}</Author>
-					</Informations>
+			<Container style={style} size={size}>
+				{!imageUrl ? (
+					<DefaultBookCover
+						size={size}
+						title={title}
+						author={author}
+						style={imageStyle}
+					/>
+				) : (
+					<Image
+						style={imageStyle}
+						source={imageUrl ? { uri: imageUrl } : { uri: asset[0].uri }}
+						radiusAll={!showInformations}
+					/>
 				)}
 			</Container>
 		</TouchableWithoutFeedback>
