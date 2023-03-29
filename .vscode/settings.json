@@ -59,6 +59,7 @@
 		"Page: BookLibrary",
 		"Component: EmptyLibrary",
 		"Component: DefaultBookCover",
-		"Utils: math"
+		"Utils: math",
+		"Component: TooltipMenu"
 	]
 }
