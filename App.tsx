@@ -22,7 +22,6 @@ import { BarCodeScannerProvider } from "./src/context/BarCodeScanner.context";
 import { ScreenOrientationProvider } from "./src/context/ScreenOrientation.context";
 import { FormInsertBookProvider } from "./src/context/FormInsertBook.context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { HoldMenuProvider } from "react-native-hold-menu";
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
@@ -69,17 +68,15 @@ export default function App() {
 					<ControllerProvider>
 						<ScreenOrientationProvider>
 							<GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
-								<HoldMenuProvider theme="light">
-									<BarCodeScannerProvider>
-										<StatusBar backgroundColor={theme.colors.PRIMARY} />
-										<Header />
-										<NavigationContainer>
-											<FormInsertBookProvider>
-												<AppRoutes />
-											</FormInsertBookProvider>
-										</NavigationContainer>
-									</BarCodeScannerProvider>
-								</HoldMenuProvider>
+								<BarCodeScannerProvider>
+									<StatusBar backgroundColor={theme.colors.PRIMARY} />
+									<Header />
+									<NavigationContainer>
+										<FormInsertBookProvider>
+											<AppRoutes />
+										</FormInsertBookProvider>
+									</NavigationContainer>
+								</BarCodeScannerProvider>
 							</GestureHandlerRootView>
 						</ScreenOrientationProvider>
 					</ControllerProvider>
