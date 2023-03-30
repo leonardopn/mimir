@@ -1,13 +1,16 @@
-import { Container, Divider, InfoButton, ReturnButton, Content } from "./styles";
-import { Title } from "../Text/Title";
-import { WrapperIconButton } from "../Forms/WrapperIconButton";
 import { useNavigation } from "@react-navigation/native";
+import { WrapperIconButton } from "../Forms/WrapperIconButton";
+import { Title } from "../Text/Title";
+import { TooltipMenu, TooltipMenuItem, TooltipMenuProps } from "../TooltipMenu";
+import { Container, Content, Divider, InfoButton, ReturnButton } from "./styles";
 
 interface HeaderStackProps {
 	title?: string;
 	showGoBack?: boolean;
 	showInfo?: boolean;
 	showDivider?: boolean;
+	tooltipOptions?: TooltipMenuItem[];
+	tooltipProps?: TooltipMenuProps;
 }
 
 export function HeaderStack({
@@ -15,6 +18,8 @@ export function HeaderStack({
 	showGoBack = false,
 	showInfo = false,
 	showDivider = true,
+	tooltipOptions,
+	tooltipProps,
 }: HeaderStackProps) {
 	const navigate = useNavigation();
 
@@ -38,6 +43,7 @@ export function HeaderStack({
 						</WrapperIconButton>
 					)}
 				</Content>
+				{tooltipOptions?.length && <TooltipMenu items={tooltipOptions} {...tooltipProps} />}
 			</Container>
 			{showDivider && <Divider />}
 		</>
