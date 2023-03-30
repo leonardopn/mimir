@@ -10,6 +10,10 @@ const initialState: BooksState = {
 	isError: false,
 };
 
+function findIndex(arr: Book[], id: string) {
+	return arr.findIndex(item => item.id === id);
+}
+
 export const BooksSlice = createSlice({
 	name: "books",
 	initialState,
@@ -18,6 +22,13 @@ export const BooksSlice = createSlice({
 			update(state, { data: { $set: action.payload } }),
 		addBook: (state, action: PayloadAction<Book>) =>
 			update(state, { data: { $push: [action.payload] } }),
+		deleteBook: (state, action: PayloadAction<string>) => {
+			const index = findIndex(state.data, action.payload);
+
+			if (index === -1) return state;
+
+			return update(state, { data: { $splice: [[index, 1]] } });
+		},
 		setFetching: (state, action: PayloadAction<boolean>) =>
 			update(state, { isFetching: { $set: action.payload } }),
 		setIsError: (state, action: PayloadAction<boolean>) =>
@@ -25,6 +36,6 @@ export const BooksSlice = createSlice({
 	},
 });
 
-export const { setIsError, setFetching, addBook } = BooksSlice.actions;
+export const { setIsError, setFetching, addBook, deleteBook } = BooksSlice.actions;
 
 export default BooksSlice.reducer;
