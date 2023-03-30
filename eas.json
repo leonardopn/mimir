@@ -1,28 +1,24 @@
 {
 	"cli": {
-		"version": ">= 3.5.2"
+		"version": ">= 3.8.1"
 	},
 	"build": {
 		"development": {
-			"distribution": "internal",
 			"developmentClient": true,
-			"android": {
-				"gradleCommand": ":app:assembleDebug"
-			},
+			"distribution": "internal",
 			"ios": {
-				"buildConfiguration": "Debug",
-				"resourceClass": "m1-medium"
+				"resourceClass": "m-medium"
 			}
 		},
 		"preview": {
 			"distribution": "internal",
 			"ios": {
-				"resourceClass": "m1-medium"
+				"resourceClass": "m-medium"
 			}
 		},
 		"production": {
 			"ios": {
-				"resourceClass": "m1-medium"
+				"resourceClass": "m-medium"
 			}
 		}
 	},

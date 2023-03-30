@@ -7,7 +7,6 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { useTheme } from "styled-components";
 import { useConfigs } from "../hooks/store/useConfigs";
 import { useScreenOrientation } from "../hooks/useScreenOrientation";
-import { Dashboard } from "../pages/Dashboard";
 import { AppStackRoutes, AppStackRoutesParams } from "./app.stack.routes";
 
 type DefaultRouteProps = {
@@ -79,7 +78,8 @@ export function AppRoutes() {
 					tabBarShowLabel: false,
 				}}
 				name="Favoritos"
-				component={Dashboard}
+				component={AppStackRoutes}
+				initialParams={{ defaultRoute: "BookLibrary-root" }}
 			/>
 
 			<Screen

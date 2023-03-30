@@ -3,10 +3,15 @@
 		"name": "mimir",
 		"slug": "mimir",
 		"version": "1.0.0",
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"requireFullScreen": true
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
 		},
+		"assetBundlePatterns": ["**/*"],
 		"plugins": [
 			[
 				"expo-image-picker",
@@ -16,12 +21,37 @@
 				}
 			],
 			[
+				"expo-barcode-scanner",
+				{
+					"cameraPermission": "Você permite Mímir acessar suas fotos?"
+				}
+			],
+			[
 				"expo-screen-orientation",
 				{
 					"initialOrientation": "DEFAULT"
 				}
 			]
 		],
+		"ios": {
+			"supportsTablet": true,
+			"requireFullScreen": true,
+			"infoPlist": {
+				"NSCameraUsageDescription": "Você permite Mímir acessar suas fotos?",
+				"NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to access your microphone"
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"permissions": ["android.permission.RECORD_AUDIO", "android.permission.CAMERA"],
+			"package": "com.leonardopn.mimir"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
 		"extra": {
 			"eas": {
 				"projectId": "384f5757-4a1a-433e-a211-bfcba4c2a73e"

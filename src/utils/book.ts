@@ -1,6 +1,6 @@
-import { v4 } from "uuid";
 import { IGoogleBooksApi } from "../services/googleBooksApi";
 import { Book } from "../types/Books";
+import { uuidv4 } from "./uuid";
 
 export function transformIGoogleBooksApiToBook(book: IGoogleBooksApi): Book {
 	const { volumeInfo } = book;
@@ -13,7 +13,7 @@ export function transformIGoogleBooksApiToBook(book: IGoogleBooksApi): Book {
 	const authors = volumeInfo?.authors || ["Sem autor"];
 
 	return {
-		id: v4(),
+		id: uuidv4(),
 		title: volumeInfo?.title || "Sem título",
 		author: authors[0],
 		publisher: volumeInfo?.publisher || "Sem editora",
