@@ -1,6 +1,5 @@
-import "react-native-get-random-values";
-import { v4 } from "uuid";
+import * as Crypto from "expo-crypto";
 
 export function uuidv4() {
-	return v4();
+	return Crypto.randomUUID();
 }

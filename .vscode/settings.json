@@ -60,6 +60,7 @@
 		"Component: EmptyLibrary",
 		"Component: DefaultBookCover",
 		"Utils: math",
-		"Component: TooltipMenu"
+		"Component: TooltipMenu",
+		"Utils: uuid"
 	]
 }
