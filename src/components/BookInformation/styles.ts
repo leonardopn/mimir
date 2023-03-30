@@ -32,6 +32,7 @@ export const BookInformationWrapper = styled.View<{ justify?: boolean }>`
 
 export const BookTitle = styled(Title)`
 	text-align: center;
+	margin-bottom: 10px;
 `;
 
 export const BookThumb = styled(CardBook)`
