@@ -50,8 +50,10 @@
 			"package": "com.leonardopn.mimir"
 		},
 		"web": {
-			"favicon": "./assets/favicon.png"
+			"favicon": "./assets/favicon.png",
+			"bundler": "metro"
 		},
+		"scheme": "acme",
 		"extra": {
 			"eas": {
 				"projectId": "384f5757-4a1a-433e-a211-bfcba4c2a73e"
