@@ -1,17 +1,65 @@
-import { HoldItem } from "react-native-hold-menu";
-import { HoldItemProps } from "react-native-hold-menu/lib/typescript/components/holdItem";
-import { MenuItemProps } from "react-native-hold-menu/lib/typescript/components/menu/types";
-import { MarkOptional } from "ts-essentials";
-import { OptionsButton } from "./styles";
+import { useState } from "react";
+import { Menu, MenuDivider, MenuItem, MenuItemProps, MenuProps } from "react-native-material-menu";
+import { WrapperIconButton } from "../Forms/WrapperIconButton";
+import { IconProps } from "../VectorIcon";
+import { MenuItemIcon, OptionsButton } from "./styles";
 
-export type TooltipMenuItem = MenuItemProps;
+export interface TooltipMenuItem extends Omit<MenuItemProps, "children"> {
+	isDivider?: boolean;
+	title: string;
+	icon?: IconProps;
+	color?: string;
+}
 
-export interface TooltipMenuProps extends MarkOptional<HoldItemProps, "children"> {}
+export interface TooltipMenuProps {
+	menuProps?: MenuProps;
+	items: TooltipMenuItem[];
+	closeOnPress?: boolean;
+}
 
-export function TooltipMenu({ children, ...restProps }: TooltipMenuProps) {
+export function TooltipMenu({ menuProps, items, closeOnPress = true }: TooltipMenuProps) {
+	const [visible, setVisible] = useState(false);
+
+	const hideMenu = () => setVisible(false);
+
+	const showMenu = () => setVisible(true);
+
 	return (
-		<HoldItem activateOn="tap" {...restProps}>
-			{children ? children : <OptionsButton iconFamily="entypo" name="dots-three-vertical" />}
-		</HoldItem>
+		<Menu
+			animationDuration={100}
+			visible={visible}
+			anchor={
+				<WrapperIconButton onPress={showMenu}>
+					<OptionsButton iconFamily="entypo" name="dots-three-vertical" />
+				</WrapperIconButton>
+			}
+			onRequestClose={hideMenu}
+			{...menuProps}>
+			{items.map((item, index) => {
+				const { icon, title, isDivider, color, ...itemRestProps } = item;
+
+				if (isDivider) return <MenuDivider key={index} color={color} />;
+				return (
+					<MenuItem
+						key={index}
+						{...itemRestProps}
+						onPress={e => {
+							closeOnPress && hideMenu();
+							itemRestProps.onPress && itemRestProps.onPress(e);
+						}}>
+						{!!icon && (
+							<>
+								<MenuItemIcon
+									style={{ color: itemRestProps.textStyle?.color }}
+									{...icon}
+								/>
+								{"  "}
+							</>
+						)}
+						{title}
+					</MenuItem>
+				);
+			})}
+		</Menu>
 	);
 }

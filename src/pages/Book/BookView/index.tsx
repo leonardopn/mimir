@@ -1,19 +1,21 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import { useCallback, useEffect, useMemo } from "react";
-import { MenuItemProps } from "react-native-hold-menu/lib/typescript/components/menu/types";
+import useBoolean from "react-use/lib/useBoolean";
+import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { BookInformation } from "../../../components/BookInformation";
 import { HeaderStack } from "../../../components/HeaderStack";
+import { Loading } from "../../../components/Loading";
+import { TooltipMenuItem } from "../../../components/TooltipMenu";
 import { useConfigs } from "../../../hooks/store/useConfigs";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
-import { AppStackRoutesParams } from "../../../Routes/app.stack.routes";
 import { deleteBook } from "../../../store/slices/books.slice";
 import { Container, Content } from "./styles";
-import useBoolean from "react-use/lib/useBoolean";
-import { Loading } from "../../../components/Loading";
+import { useTheme } from "styled-components";
 
 interface BookViewProps extends StackScreenProps<AppStackRoutesParams, "Book-view"> {}
 
 export function BookView({ route, navigation }: BookViewProps) {
+	const { colors } = useTheme();
 	const [isLoading, setIsLoading] = useBoolean(false);
 	const { book } = route.params;
 	const {
@@ -27,7 +29,6 @@ export function BookView({ route, navigation }: BookViewProps) {
 	}, [updateConfigs]);
 
 	const handleDeleteBook = useCallback(() => {
-		console.log(book);
 		setIsLoading(true);
 		navigation.replace("BookLibrary-root");
 		dispatch(deleteBook(book.id));
@@ -35,20 +36,25 @@ export function BookView({ route, navigation }: BookViewProps) {
 	}, [book, dispatch, navigation, setIsLoading]);
 
 	function handleUpdateBook() {
-		throw new Error("Not implemented yet! :(");
+		console.log("Me implementa :)");
 	}
 
-	const options: MenuItemProps[] = useMemo(
+	const options = useMemo<TooltipMenuItem[]>(
 		() => [
-			{ text: "Editar", icon: "edit", onPress: handleUpdateBook },
 			{
-				text: "Apagar",
-				icon: "trash",
-				isDestructive: true,
+				title: "Atualizar",
+				onPress: handleUpdateBook,
+				textStyle: { color: colors.PRIMARY },
+				icon: { iconFamily: "font_awesome", name: "pencil" },
+			},
+			{
+				title: "Deletar",
 				onPress: handleDeleteBook,
+				textStyle: { color: colors.ATTENTION_LIGHT },
+				icon: { iconFamily: "font_awesome", name: "trash" },
 			},
 		],
-		[handleDeleteBook]
+		[colors.ATTENTION_LIGHT, colors.PRIMARY, handleDeleteBook]
 	);
 
 	if (isLoading) return <Loading text="Carregando..." showText={true} />;

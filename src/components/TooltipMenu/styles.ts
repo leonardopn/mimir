@@ -7,3 +7,8 @@ export const OptionsButton = styled(VectorIcon)`
 	color: ${({ theme }) => theme.colors.PRIMARY};
 	margin-left: ${RFValue(3)}px;
 `;
+
+export const MenuItemIcon = styled(VectorIcon)`
+	font-size: ${RFValue(18)}px;
+	padding-right: ${RFValue(3)}px;
+`;
