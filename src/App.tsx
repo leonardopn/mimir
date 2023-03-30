@@ -1,3 +1,4 @@
+import "expo-dev-client";
 import {
 	Montserrat_400Regular,
 	Montserrat_500Medium,

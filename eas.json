@@ -1,0 +1,32 @@
+{
+	"cli": {
+		"version": ">= 3.5.2"
+	},
+	"build": {
+		"development": {
+			"distribution": "internal",
+			"developmentClient": true,
+			"android": {
+				"gradleCommand": ":app:assembleDebug"
+			},
+			"ios": {
+				"buildConfiguration": "Debug",
+				"resourceClass": "m1-medium"
+			}
+		},
+		"preview": {
+			"distribution": "internal",
+			"ios": {
+				"resourceClass": "m1-medium"
+			}
+		},
+		"production": {
+			"ios": {
+				"resourceClass": "m1-medium"
+			}
+		}
+	},
+	"submit": {
+		"production": {}
+	}
+}
